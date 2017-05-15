@@ -32,7 +32,9 @@ FLAGS = -Wall
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJ) $(LIBFT)
+	$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(HEADERS)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 $(OBJ): %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
