@@ -17,13 +17,13 @@ CC = gcc
 
 LIBFT = libft/libft.a
 
-SRC = 		ft_itoa_base.c ft_parse_param.c \
+SRC = 	ft_itoa_base.c ft_parse_param.c \
 		ft_print_char.c ft_print_double.c \
 		ft_print_float.c ft_print_int.c ft_print_ptr.c \
 		ft_print_string.c ft_print_with_params.c \
 		ft_printf.c ft_ftoa_base.c 
 
-OBJ = $(SRC:.c=.o)
+OBJ = 	$(SRC:.c=.o)
 
 HEADERS = libft/libft.h ft_printf.h 
 
@@ -32,8 +32,8 @@ FLAGS = -Wall
 all: $(NAME)
 
 $(NAME): $(OBJ) $(LIBFT)
-	$(CC) -o $(NAME) $(OBJ) $(LIBFT) $(HEADERS)
-	ar rc $(NAME) $(OBJ)
+	$(CC) -c $(SRC)  
+	ar rc $(NAME) $(OBJ) $(LIBFT)
 	ranlib $(NAME)
 
 $(OBJ): %.o: %.c
