@@ -17,7 +17,7 @@ CC = gcc
 
 LIBFT = libft/libft.a
 
-SRC = 		test.c ft_itoa_base.c ft_parse_param.c \
+SRC = 		ft_itoa_base.c ft_parse_param.c \
 		ft_print_char.c ft_print_double.c \
 		ft_print_float.c ft_print_int.c ft_print_ptr.c \
 		ft_print_string.c ft_print_with_params.c \
