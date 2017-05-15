@@ -1,5 +1,4 @@
 #include "ft_printf.h"
-#include <stdio.h>
 
 char		*ft_dtoa_base(double value, int base)
 {
@@ -9,7 +8,6 @@ char		*ft_dtoa_base(double value, int base)
 
 	str = ft_itoa_base((long long)value, (long long)base);
 	val = value - (long)value;
-	printf("## %f %f ## ", val, (val * 1000000));
 	if (val == 0)
 		return (str);
 	p = str;
@@ -17,7 +15,7 @@ char		*ft_dtoa_base(double value, int base)
 		++p;
 	*p = '.';
 	*(p + 1) = '\0';
-	val = (int)(val * 1000000);
+	val = (int)(val * 1000000 + 1);
 	str = ft_strjoin(str, ft_itoa_base((long long)val, (long long)base));
 	return (str);
 }
