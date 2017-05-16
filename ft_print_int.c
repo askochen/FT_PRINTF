@@ -19,11 +19,15 @@ int		ft_is_int(t_param* param)
 
 int		ft_print_int(va_list* ap,t_param* param)
 {
-	int		temp;
-	char*	str;
+	int		res;
 
-	temp = (char)va_arg(*ap, int);
-	str = ft_itoa(temp);
-	ft_putstr(str); 
-	return (ft_strlen(str));
+	if (param->type == 'i' || param->type == 'd')
+		res = ft_print_id(ap, param);
+	if (param->type == 'o')
+		res = ft_print_o(ap, param);
+	if (param->type == 'u')
+		res = ft_print_u(ap, param);
+	if (param->type == 'x' || param->type == 'X')
+		res = ft_print_xx(ap, param);
+	return (res);
 }

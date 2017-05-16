@@ -68,9 +68,11 @@ int			ft_print_ptr(va_list* ap,t_param* param);
 int			ft_is_int(t_param* param);
 int			ft_print_int(va_list* ap, t_param* param);
 
-//	ft_print_float.c
-int			ft_is_float(t_param* param);
-int			ft_print_float(va_list* ap, t_param* param);
+//	ft_printf_int2.c
+int			ft_print_id(va_list* ap,t_param* param);
+int			ft_print_o(va_list* ap,t_param* param);
+int			ft_print_u(va_list* ap,t_param* param);
+int			ft_print_xx(va_list* ap,t_param* param);
 
 //	ft_print_double.c
 int			ft_is_double(t_param* param);
@@ -81,6 +83,7 @@ int			ft_count(long long int nb);
 char*		ft_itoa_new(long long int nb);
 int			ft_count_base(long long int nb, long long int base);
 char*		ft_itoa_base(long long int n, long long int base);
+char*		ft_uitoa_base(long long int n, long long int base);
 
 //	ft_ftoa_base.c
 char		*ft_dtoa_base(double value, int base);

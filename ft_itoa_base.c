@@ -79,3 +79,26 @@ char	*ft_itoa_base(long long int n, long long int base)
 	}
 	return (temp);
 }
+
+char	*ft_uitoa_base(long long int n, long long int base)
+{
+	int			len;
+	char		*temp;
+	char		*ptr;
+
+	len = ft_count_base(n, base);
+	ptr = ft_strnew(len);
+	if (ptr == NULL)
+		return (NULL);
+	temp = ptr;
+	while(len > 0)
+	{
+		if (n % base < 10)
+			*(ptr + len - 1) = (n % base + '0');
+		else
+			*(ptr + len - 1) = (('a' + n % base) - 10);
+		n = n / base;
+		--len;
+	}
+	return (temp);
+}
