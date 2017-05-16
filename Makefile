@@ -28,7 +28,7 @@ LIB_DIR = ./libft/
 
 LIB_INC = ./libft/libft.h
 
-HEAD = libftprintf.h
+HEAD = ft_printf.h
 
 all: $(NAME)
 
