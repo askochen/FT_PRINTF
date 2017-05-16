@@ -15,39 +15,39 @@ NAME = libftprintf.a
 
 CFLAGS = -Wall -Wextra -Werror
 
-SOURCE = 	ft_itoa_base.c ft_parse_param.c \
+SRC = 	ft_itoa_base.c ft_parse_param.c \
 		ft_print_char.c ft_print_double.c \
 		ft_print_float.c ft_print_int.c ft_print_ptr.c \
 		ft_print_string.c ft_print_with_params.c \
 		ft_printf.c ft_ftoa_base.c 
 
 
-OBJECTS = $(SOURCE:.c=.o)
+OBJ = $(SRC:.c=.o)
 
-LIB_DIR = ./libft/
+LIBFT = ./libft/
 
-LIB_INC = ./libft/libft.h
+LIBFT_HEAD = ./libft/libft.h
 
-HEAD = ft_printf.h
+HEADER = ft_printf.h
 
 all: $(NAME)
 
-$(NAME): $(OBJECTS) $(LIB_DIR)libft.a
-	ar rc $(NAME) $(OBJECTS) $(LIB_DIR)*.o
+$(NAME): $(OBJ) $(LIBFT)libft.a
+	ar rc $(NAME) $(OBJ) $(LIBFT)*.o
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ -I $(LIB_DIR) -I $(LIB_INC) -I $(HEAD)
+	gcc $(CFLAGS) -c $< -o $@ -I $(LIBFT) -I $(LIBFT_HEAD) -I $(HEADER)
 
-$(LIB_DIR)libft.a:
-	make -C $(LIB_DIR)
+$(LIBFT)libft.a:
+	make -C $(LIBFT)
 
 clean:
-	make clean -C $(LIB_DIR)
-	rm -f $(OBJECTS)
+	make clean -C $(LIBFT)
+	rm -f $(OBJ)
 
 fclean: clean
-	make fclean -C $(LIB_DIR)
+	make fclean -C $(LIBFT)
 	rm -f $(NAME)
 
 re: fclean all
