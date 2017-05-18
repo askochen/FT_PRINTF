@@ -26,6 +26,6 @@ int 	ft_prit_char(va_list* ap, t_param* param)
 
 	temp = ft_strnew(1);
 	*temp = (char)va_arg(*ap, int);
-	ft_print_left(temp, param->width, param->prec, param->left, ' ');
+	ft_print_left(temp, param->width, 1, param->left, ' ');
 	return (1);
 }
