@@ -55,6 +55,7 @@ int		ft_print_with_params(va_list* ap, t_param* param)
 		return (ft_print_int(ap, param));
 	if (ft_is_double(param))
 		return (ft_print_double(ap, param));
+	return (0);
 }
 
 int		ft_is_persent(t_param* param)
