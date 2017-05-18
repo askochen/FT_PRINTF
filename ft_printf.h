@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/18 14:11:18 by askochen          #+#    #+#             */
+/*   Updated: 2017/05/18 14:11:39 by askochen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_PRINTF_H
 #define FT_PRINTF_H
 
 #include <stdlib.h>
 #include <stdarg.h>
-#include <wchar.h>
-
+#include <unistd.h>
 #include "libft/libft.h"
 
 typedef struct	s_param
@@ -51,6 +62,11 @@ void		ft_parse_flags(t_param* param, char* str);
 int			ft_print_with_params(va_list* ap, t_param* param);
 int			ft_is_persent(t_param* param);
 int			ft_print_persent();
+
+//	tools.c
+void		ft_put_n_symbols(char symb, int n);
+void		ft_put_str_n(char*  str, int n);
+void		ft_print_left(char* str, int size, int prec, int bool, char symb);
 
 // ft_print_string.c
 int			ft_is_string(t_param* param);

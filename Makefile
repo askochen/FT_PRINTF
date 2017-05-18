@@ -5,18 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: askochen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/12/05 17:18:28 by askochen          #+#    #+#              #
-#    Updated: 2016/12/09 14:37:04 by askochen         ###   ########.fr        #
+#    Created: 2017/05/18 13:10:46 by askochen          #+#    #+#              #
+#    Updated: 2017/05/18 13:11:25 by askochen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
-
 NAME = libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall 
 
 SRC = 	ft_itoa_base.c ft_parse_param.c \
-		ft_print_char.c ft_print_double.c \
+		tools.c ft_print_char.c ft_print_double.c \
 		ft_print_int.c ft_print_int2.c ft_print_ptr.c \
 		ft_print_string.c ft_print_with_params.c \
 		ft_printf.c ft_ftoa_base.c 
@@ -37,14 +36,14 @@ $(NAME): $(OBJ) $(LIBFT)libft.a
 	ranlib $(NAME)
 
 %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@ -I $(LIBFT) -I $(LIBFT_HEAD) -I $(HEADER)
+	gcc $(FLAGS) -c $< -o $@ -I $(LIBFT) -I $(LIBFT_HEAD) -I $(HEADER)
 
 $(LIBFT)libft.a:
 	make -C $(LIBFT)
 
 clean:
 	make clean -C $(LIBFT)
-	rm -f $(OBJ)
+	rm -f $(OBJ) ft_printf.h.gch 
 
 fclean: clean
 	make fclean -C $(LIBFT)
