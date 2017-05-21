@@ -33,7 +33,7 @@ typedef struct	s_param
 	//	precision -> int or *
 	int			prec;
 
-	//	lenght -> hh, ll, l, h, z, j
+	//	lenght -> none, hh, ll, l, h, z, j
 	enum		{none, hh, h, l, ll, j, z} lenght;
 
 	//	type -> d, i, o, u, x, X, f, F, e, E, g, G, a, A, s, S, p, n, %
@@ -67,6 +67,7 @@ int			ft_print_persent();
 void		ft_put_n_symbols(char symb, int n);
 void		ft_put_str_n(char*  str, int n);
 void		ft_print_left(char* str, int size, int prec, int bool, char symb);
+char*		ft_new_n_symb(int len, char symb);
 
 // ft_print_string.c
 int			ft_is_string(t_param* param);
@@ -79,6 +80,7 @@ int			ft_prit_char(va_list* ap, t_param* param);
 //	ft_print_ptr.c
 int			ft_is_ptr(t_param* param);
 int			ft_print_ptr(va_list* ap,t_param* param);
+int			ft_get_base(t_param* param);
 
 //	ft_print_int.c
 int			ft_is_int(t_param* param);
@@ -86,20 +88,26 @@ int			ft_print_int(va_list* ap, t_param* param);
 
 //	ft_printf_int2.c
 int			ft_print_id(va_list* ap,t_param* param);
-int			ft_print_o(va_list* ap,t_param* param);
-int			ft_print_u(va_list* ap,t_param* param);
-int			ft_print_xx(va_list* ap,t_param* param);
+int			ft_print_ouxX(va_list* ap,t_param* param);
+int			ft_normalize_ouxX(char* str, t_param* param);
+void		ft_add_xX(char* str, t_param* param);
+
+//	ft_print_int3.c
+char*		ft_uint_hh_to_str(va_list* ap,t_param* param);
+char*		ft_uint_h_to_str(va_list* ap,t_param* param);
+char*		ft_uint_ll_to_str(va_list* ap,t_param* param);
+char*		ft_uint_l_to_str(va_list* ap,t_param* param);
+char*		ft_uint_z_to_str(va_list* ap,t_param* param);
+char*		ft_uint_j_to_str(va_list* ap,t_param* param);
+char*		ft_uint_to_str(va_list* ap,t_param* param);
 
 //	ft_print_double.c
 int			ft_is_double(t_param* param);
 int			ft_print_double(va_list* ap, t_param* param);
 
 //	ft_itoa_base.c
-int			ft_count(long long int nb);
-char*		ft_itoa_new(long long int nb);
 int			ft_count_base(long long int nb, long long int base);
 char*		ft_itoa_base(long long int n, long long int base);
-char*		ft_uitoa_base(long long int n, long long int base);
 
 //	ft_ftoa_base.c
 char		*ft_dtoa_base(double value, int base);

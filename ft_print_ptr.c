@@ -31,7 +31,8 @@ int		ft_print_ptr(va_list* ap,t_param* param)
 	temp = ft_itoa_base(ptr, 16);
 	str = ft_strjoin("0x", temp);
 	len = ft_strlen(str);
-	ft_putstr(str);
+
+	ft_print_left(str, param->width, len, param->left, ' ');
 	free(temp);
 	free(str);
 	return (len);
