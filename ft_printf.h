@@ -91,15 +91,7 @@ int			ft_print_id(va_list* ap,t_param* param);
 int			ft_print_ouxX(va_list* ap,t_param* param);
 int			ft_normalize_ouxX(char* str, t_param* param);
 void		ft_add_xX(char* str, t_param* param);
-
-//	ft_print_int3.c
-char*		ft_uint_hh_to_str(va_list* ap,t_param* param);
-char*		ft_uint_h_to_str(va_list* ap,t_param* param);
-char*		ft_uint_ll_to_str(va_list* ap,t_param* param);
-char*		ft_uint_l_to_str(va_list* ap,t_param* param);
-char*		ft_uint_z_to_str(va_list* ap,t_param* param);
-char*		ft_uint_j_to_str(va_list* ap,t_param* param);
-char*		ft_uint_to_str(va_list* ap,t_param* param);
+int			ft_put_int(long long num, t_param* param);
 
 //	ft_print_double.c
 int			ft_is_double(t_param* param);
