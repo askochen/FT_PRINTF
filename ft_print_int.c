@@ -37,7 +37,9 @@ int		ft_print_int(va_list* ap,t_param* p)
 
 	if (p->type == 'i' || p->type == 'd')
 		res = ft_print_id(ap, p);
-	if (p->type == 'o' || p->type == 'u' || p->type == 'O')
+	if (p->type == 'D')
+		res = ft_print_D(ap, p);
+	if (p->type == 'o' || p->type == 'u' || p->type == 'U' || p->type == 'O')
 		res = ft_print_ouxX(ap, p);
 	if ( p->type == 'x' || p->type == 'X')
 		res = ft_print_ouxX(ap, p);

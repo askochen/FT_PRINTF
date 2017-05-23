@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdint.h>
 
 int	ft_print_id(va_list* ap,t_param* p)
 {
@@ -27,11 +26,30 @@ int	ft_print_id(va_list* ap,t_param* p)
 	else if (p->lenght == l)
 		temp = (long)va_arg(*ap, long);
 	else if (p->lenght == j)
-		temp = (intmax_t)va_arg(*ap, intmax_t);
+		temp = (long long)va_arg(*ap, long long);
 	else if (p->lenght == z)
 		temp = (size_t)va_arg(*ap, size_t);
 	else
 		temp = (int)va_arg(*ap, int);
+	len = ft_put_int(temp, p);
+	return (len);
+}
+
+int	ft_print_D(va_list* ap,t_param* p)
+{
+	long long temp;
+	int len;
+	
+	if (p->lenght == ll)
+		temp = (long long)va_arg(*ap, long long);
+	else if (p->lenght == z)
+		temp = (size_t)va_arg(*ap, size_t);
+	else if (p->lenght == j)
+		temp = (long long)va_arg(*ap, long long);
+	else if (p->lenght == l)
+		temp = (long)va_arg(*ap, long);
+	else
+		temp = (long)va_arg(*ap, long);
 	len = ft_put_int(temp, p);
 	return (len);
 }
@@ -101,7 +119,9 @@ int	ft_print_ouxX(va_list* ap, t_param* p)
 		temp = (unsigned short)va_arg(*ap, int);
 	else if (p->lenght == ll)
 		temp = va_arg(*ap, unsigned long long);
-	else if (p->lenght == l || p->lenght == j || p->lenght == z || p->type == 'O')
+	else if (p->lenght == l || p->lenght == j || p->lenght == z)
+		temp = va_arg(*ap, unsigned long);
+	else if (p->type == 'U' || p->type == 'O')
 		temp = va_arg(*ap, unsigned long);
 	else
 		temp = (unsigned int)va_arg(*ap, unsigned int);

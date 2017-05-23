@@ -92,7 +92,7 @@ int			ft_print_ouxX(va_list* ap,t_param* param);
 int			ft_normalize_ouxX(char* str, t_param* param);
 void		ft_add_xX(char* str, t_param* param);
 int			ft_put_int(long long num, t_param* param);
-
+int			ft_print_D(va_list* ap,t_param* p);
 //	ft_print_double.c
 int			ft_is_double(t_param* param);
 int			ft_print_double(va_list* ap, t_param* param);
