@@ -25,8 +25,13 @@ int		ft_print_str(va_list* ap, t_param* param)
 	char*	str;
 	int		len;
 	
-	str = va_arg(*ap, char*);
-	len = ft_strlen(str);
-	ft_print_left(str, param->width, param->prec, param->left, ' ');
-	return(len);
+	if (param->type == 'c')
+	{
+		str = va_arg(*ap, char*);
+		len = ft_strlen(str);
+		ft_print_left(str, param->width, param->prec, param->left, ' ');
+		return(len);
+	}
+	else
+		return (ft_s_high(ap, param));
 }

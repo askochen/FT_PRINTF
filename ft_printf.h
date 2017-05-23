@@ -73,9 +73,20 @@ char*		ft_new_n_symb(int len, char symb);
 int			ft_is_string(t_param* param);
 int			ft_print_str(va_list* ap, t_param* param);
 
+//	ft_w_str_tools.c
+int			w_char_len(wchar_t w_c);
+int			ft_s_high(va_list* ap, t_param* param);
+
 //	ft_print_char.c
 int			ft_is_char(t_param* param);
 int			ft_prit_char(va_list* ap, t_param* param);
+
+//	ft_w_char_tools.c
+int		use_mask_0(unsigned int w_c, unsigned int mask);
+int		use_mask_1(unsigned int w_c, unsigned int mask);
+int		use_mask_2(unsigned int w_c, unsigned int mask);
+int		use_mask_3(unsigned int w_c, unsigned int mask);
+int		use_mask(wchar_t w_c);
 
 //	ft_print_ptr.c
 int			ft_is_ptr(t_param* param);
