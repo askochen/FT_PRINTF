@@ -18,7 +18,7 @@ SRC = 	ft_itoa_base.c ft_parse_param.c \
 		tools.c ft_print_char.c ft_print_double.c \
 		ft_print_int.c ft_print_int2.c ft_print_ptr.c \
 		ft_print_string.c ft_print_with_params.c \
-		ft_printf.c ft_ftoa_base.c ft_w_str_tools.c
+		ft_printf.c ft_ftoa_base.c ft_w_str_tools.c \
 		ft_w_char_tools.c
 
 
