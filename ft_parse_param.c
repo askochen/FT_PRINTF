@@ -12,46 +12,47 @@
 
 #include "ft_printf.h"
 
-void	ft_parse_lenght(t_param* param, char* str)
+void	ft_parse_lenght(t_param *param, char *str)
 {
 	if ((*(str + param->count) == 'h') && (*(str + param->count) == 'h'))
 	{
 		param->lenght = hh;
 		param->count = param->count + 2;
-		return;
+		return ;
 	}
 	if ((*(str + param->count) == 'l') && (*(str + param->count) == 'l'))
 	{
 		param->lenght = ll;
 		param->count = param->count + 2;
-		return;
+		return ;
 	}
 	if (*(str + param->count) == 'l')
 	{
 		param->lenght = l;
 		param->count = param->count + 1;
-	}	
+	}
 	if (*(str + param->count) == 'h')
 	{
 		param->lenght = h;
 		param->count = param->count + 1;
 	}
-		if (*(str + param->count) == 'j')
+	if (*(str + param->count) == 'j')
 	{
 		param->lenght = j;
 		param->count = param->count + 1;
 	}
-		if (*(str + param->count) == 'z')
+	if (*(str + param->count) == 'z')
 	{
 		param->lenght = z;
 		param->count = param->count + 1;
 	}
 }
 
-void ft_parse_precis(t_param* param, char* str, va_list* ap)
+void	ft_parse_precis(t_param *param, char *str, va_list *ap)
 {
-	int prec = 0;
+	int		prec;
 
+	prec = 0;
 	param->prec = 0;
 	if (*(str + param->count) == '.')
 	{
@@ -71,9 +72,9 @@ void ft_parse_precis(t_param* param, char* str, va_list* ap)
 	}
 }
 
-void ft_parse_width(t_param* param, char* str, va_list* ap)
+void	ft_parse_width(t_param *param, char *str, va_list *ap)
 {
-	int temp;
+	int		temp;
 
 	param->width = 0;
 	if (*(str + param->count) == '*')
@@ -98,7 +99,7 @@ void ft_parse_width(t_param* param, char* str, va_list* ap)
 	}
 }
 
-int ft_is_flag(char c)
+int		ft_is_flag(char c)
 {
 	if (c == '0' || c == '-' || c == '+' || c == ' ' || c == '#')
 		return (1);
@@ -106,7 +107,7 @@ int ft_is_flag(char c)
 		return (0);
 }
 
-void	ft_parse_flags(t_param* param, char* str)
+void	ft_parse_flags(t_param *param, char *str)
 {
 	while (ft_is_flag(*(str + param->count)))
 	{

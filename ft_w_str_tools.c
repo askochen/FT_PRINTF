@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_w_str_tools.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/05/24 14:49:47 by askochen          #+#    #+#             */
+/*   Updated: 2017/05/24 14:49:59 by askochen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 int			w_char_len(wchar_t w_c)
@@ -12,7 +24,7 @@ int			w_char_len(wchar_t w_c)
 		return (4);
 }
 
-int			ft_s_high(va_list* ap, t_param* param)
+int			ft_s_high(va_list *ap, t_param *param)
 {
 	wchar_t		*s;
 	int			n;
@@ -21,13 +33,11 @@ int			ft_s_high(va_list* ap, t_param* param)
 	i = 0;
 	n = 0;
 	s = (wchar_t *)va_arg(*ap, wchar_t *);
-
-		while (s[i])
-		{
-			n += w_char_len(s[i]);
-			use_mask(s[i]);
-			++i;
-		}
-
+	while (s[i])
+	{
+		n += w_char_len(s[i]);
+		use_mask(s[i]);
+		++i;
+	}
 	return (n);
 }

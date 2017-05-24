@@ -19,13 +19,13 @@ int		ft_is_double(t_param* param)
 	if (param->type == 'A')
 		return (1);
 	if (param->type == 'e')
-			return (1);
-	if (param->type == 'E')
-			return (1);
-	if (param->type == 'f')
-			return (1);
-	if (param->type == 'F')
 		return (1);
+	if (param->type == 'E')
+		return (1);
+	if (param->type == 'f')
+		return (1);
+	if (param->type == 'F')
+			return (1);
 	if (param->type == 'g')
 		return (1);
 	if (param->type == 'G')

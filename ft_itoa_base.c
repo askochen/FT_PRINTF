@@ -19,7 +19,7 @@ int		ft_count_base(long long int nb, long long int base)
 	if (nb < base)
 		return (1);
 	else
-		return(ft_count_base(nb / base, base) + 1);
+		return (ft_count_base(nb / base, base) + 1);
 }
 
 char	*ft_itoa_base(long long int n, long long int base)
@@ -33,7 +33,7 @@ char	*ft_itoa_base(long long int n, long long int base)
 	if (ptr == NULL)
 		return (NULL);
 	temp = ptr;
-	while(len > 0)
+	while (len > 0)
 	{
 		if (n % base < 10)
 			*(ptr + len - 1) = (n % base + '0');
@@ -44,4 +44,3 @@ char	*ft_itoa_base(long long int n, long long int base)
 	}
 	return (temp);
 }
-

@@ -12,17 +12,17 @@
 
 #include "ft_printf.h"
 
-void		ft_parse_type(t_param* c_param, char* str)
+void		ft_parse_type(t_param *c_param, char *str)
 {
 	c_param->type = str[c_param->count];
 	c_param->count = c_param->count + 1;
 }
 
-t_param*	ft_new_params(va_list* ap, char* str)
+t_param		*ft_new_params(va_list *ap, char *str)
 {
-	t_param*	c_param;
+	t_param		*c_param;
 
-	c_param = (t_param*) malloc(sizeof(t_param));
+	c_param = (t_param*)malloc(sizeof(t_param));
 	ft_bzero((void*)c_param, sizeof(t_param));
 	ft_parse_flags(c_param, str);
 	ft_parse_width(c_param, str, ap);
@@ -32,10 +32,10 @@ t_param*	ft_new_params(va_list* ap, char* str)
 	return (c_param);
 }
 
-int ft_parse_with_flags(va_list* ap, char* str, int* size)
+int			ft_parse_with_flags(va_list *ap, char *str, int *size)
 {
 	int			len;
-	t_param*	param;
+	t_param		*param;
 
 	param = ft_new_params(ap, str);
 	*size = param->count + 1;
@@ -44,12 +44,12 @@ int ft_parse_with_flags(va_list* ap, char* str, int* size)
 	return (len);
 }
 
-int		ft_parse(va_list* ap, char* str)
+int			ft_parse(va_list *ap, char *str)
 {
 	int		len;
 	int		res;
 	int		size;
-	
+
 	len = 0;
 	while (*str != '\0')
 	{
@@ -69,7 +69,7 @@ int		ft_parse(va_list* ap, char* str)
 	return (len);
 }
 
-int		ft_printf(char* str, ...)
+int			ft_printf(char *str, ...)
 {
 	int			len;
 	va_list		ap;

@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_is_string(t_param* param)
+int		ft_is_string(t_param *param)
 {
 	if (param->type == 's' || param->type == 'S')
 		return (1);
@@ -20,17 +20,17 @@ int		ft_is_string(t_param* param)
 		return (0);
 }
 
-int		ft_print_str(va_list* ap, t_param* param)
+int		ft_print_str(va_list *ap, t_param *param)
 {
-	char*	str;
+	char	*str;
 	int		len;
-	
+
 	if (param->type == 'c')
 	{
 		str = va_arg(*ap, char*);
 		len = ft_strlen(str);
 		ft_print_left(str, param->width, param->prec, param->left, ' ');
-		return(len);
+		return (len);
 	}
 	else
 		return (ft_s_high(ap, param));

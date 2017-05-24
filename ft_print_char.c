@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_is_char(t_param* param)
+int		ft_is_char(t_param *param)
 {
 	if (param->type == 'c' || param->type == 'C')
 		return (1);
@@ -20,9 +20,9 @@ int		ft_is_char(t_param* param)
 		return (0);
 }
 
-int 	ft_prit_char(va_list* ap, t_param* param)
+int		ft_prit_char(va_list *ap, t_param *param)
 {
-	char*	temp;
+	char		*temp;
 	wchar_t		w_c;
 
 	if (param->type == 'c')
