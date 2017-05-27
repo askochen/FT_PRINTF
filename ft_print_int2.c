@@ -81,6 +81,7 @@ int			ft_put_int(long long num, t_param *param)
 	int			len;
 	char		*temp;
 	char		*str;
+	int 		pos;
 
 	minus = 0;
 	if (num < 0)
@@ -91,10 +92,19 @@ int			ft_put_int(long long num, t_param *param)
 	str = ft_itoa_base(num, 10);
 	if (minus)
 		str = ft_strjoin("-", str);
+	else
+		{
+			if (param->sign == 1)
+				str = ft_strjoin("+", str);
+			else if (param->space == 1)
+				str = ft_strjoin(" ", str);	
+			}
+
 	if (param->prec > ft_strlen(str))
 	{
+		pos = minus || param->sign || param->space;
 		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp, minus);
+		str = ft_insert_with_free(str, temp, pos);
 	}
 	str = ft_modify_width_id(str, minus, param);
 	ft_putstr(str);
@@ -130,7 +140,7 @@ int 		ft_put_int_o(unsigned long long	temp, t_param* param)
 	char		*temp1;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
-	if (param->altern == 1)
+	if (param->altern == 1 && temp != 0)
 		str = ft_strjoin("0", str);
 	if (param->prec > ft_strlen(str))
 	{
