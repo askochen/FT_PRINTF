@@ -107,7 +107,7 @@ int			ft_put_int(long long num, t_param *param)
 		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, pos);
 	}
-	if (param->space == 1)
+	if (param->space == 1 && num >= 0)
 				str = ft_strjoin(" ", str);
 	str = ft_modify_width_id(str, minus, param);
 	ft_putstr(str);
