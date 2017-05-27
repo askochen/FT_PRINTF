@@ -89,6 +89,7 @@ int			ft_put_int(long long num, t_param *param)
 		num = num * -1;
 		minus = 1;
 	}
+	pos = 0;
 	str = ft_itoa_base(num, 10);
 	if (minus)
 		str = ft_strjoin("-", str);
@@ -99,10 +100,12 @@ int			ft_put_int(long long num, t_param *param)
 			else if (param->space == 1)
 				str = ft_strjoin(" ", str);	
 			}
-
 	if (param->prec > ft_strlen(str))
 	{
-		pos = minus || param->sign || param->space;
+		if (minus == 1 || param->sign == 1 || param->space == 1)
+		{
+			pos = 1;
+		}
 		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, pos);
 	}

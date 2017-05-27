@@ -101,8 +101,8 @@ char* 	 ft_modify_width_id(char *str, int minus, t_param *param)
 		if (param->left == 1)
 			pos = ft_strlen(str);
 		else
-			if (symb == '0')
-				pos = minus;
+			if (symb == '0' || param->sign == 1 || param->space == 1)
+				pos = 1;
 			else
 				pos = 0;
 		temp = ft_new_n_symb(param->width - ft_strlen(str), ft_set_symb(param));
