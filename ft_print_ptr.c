@@ -22,14 +22,14 @@ int		ft_is_ptr(t_param *param)
 
 int		ft_print_ptr(va_list *ap, t_param *param)
 {
-	unsigned long long int	ptr;
-	char					*str;
-	char 					*temp;
-	int						len;
-	int 					pos;
+	int 	*ptr;
+	char	*str;
+	char 	*temp;
+	int		len;
+	int 	pos;
 
-	ptr = va_arg(*ap, unsigned int);
-	str = ft_itoa_base(ptr, 16);
+	ptr = va_arg(*ap, int*);
+	str = ft_itoa_base((intmax_t)ptr, 16);
 	str = ft_strjoin("0x", str);
 	if (param->width > ft_strlen(str))
 	{
