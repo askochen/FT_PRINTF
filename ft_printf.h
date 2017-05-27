@@ -79,6 +79,7 @@ int			ft_print_hight_str(va_list *ap, t_param *param);
 //	ft_print_char.c
 int			ft_is_char(t_param *param);
 int			ft_prit_char(va_list *ap, t_param *param);
+int 		ft_print_simple_ch(va_list* ap);
 int 		ft_print_low_char(va_list *ap, t_param *p);
 int			ft_print_hight_char(va_list *ap, t_param *param);
 
