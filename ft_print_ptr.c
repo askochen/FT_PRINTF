@@ -22,17 +22,26 @@ int		ft_is_ptr(t_param *param)
 
 int		ft_print_ptr(va_list *ap, t_param *param)
 {
-	unsigned int	ptr;
-	char			*str;
-	char			*temp;
-	int				len;
+	unsigned long long int	ptr;
+	char					*str;
+	char 					*temp;
+	int						len;
+	int 					pos;
 
 	ptr = va_arg(*ap, unsigned int);
-	temp = ft_itoa_base(ptr, 16);
-	str = ft_strjoin("0x", temp);
+	str = ft_itoa_base(ptr, 16);
+	str = ft_strjoin("0x", str);
+	if (param->width > ft_strlen(str))
+	{
+		if (param->left == 1)
+			pos = ft_strlen(str);
+		else
+			pos = 0;
+		temp = ft_new_n_symb(param->width - ft_strlen(str), ' ');
+		str = ft_insert_with_free(str, temp, pos);
+	}
 	len = ft_strlen(str);
-	ft_print_left(str, param->width, len, param->left, ' ');
-	free(temp);
+	ft_putstr(str);
 	free(str);
 	return (len);
 }

@@ -14,13 +14,13 @@
 
 void	ft_parse_lenght(t_param *param, char *str)
 {
-	if ((*(str + param->count) == 'h') && (*(str + param->count) == 'h'))
+	if ((*(str + param->count) == 'h') && (*(str + param->count + 1) == 'h'))
 	{
 		param->lenght = hh;
 		param->count = param->count + 2;
 		return ;
 	}
-	if ((*(str + param->count) == 'l') && (*(str + param->count) == 'l'))
+	if ((*(str + param->count) == 'l') && (*(str + param->count + 1) == 'l'))
 	{
 		param->lenght = ll;
 		param->count = param->count + 2;

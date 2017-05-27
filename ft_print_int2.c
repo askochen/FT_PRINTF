@@ -15,7 +15,6 @@
 int			ft_print_id(va_list *ap, t_param *p)
 {
 	long long	temp;
-	int			len;
 
 	if (p->lenght == hh)
 		temp = (signed char)va_arg(*ap, int);
@@ -31,87 +30,12 @@ int			ft_print_id(va_list *ap, t_param *p)
 		temp = (size_t)va_arg(*ap, size_t);
 	else
 		temp = (int)va_arg(*ap, int);
-	len = ft_put_int(temp, p);
-	return (len);
-}
-
-int			ft_print_ld(va_list *ap, t_param *p)
-{
-	long long	temp;
-	int			len;
-
-	if (p->lenght == ll)
-		temp = (long long)va_arg(*ap, long long);
-	else if (p->lenght == z)
-		temp = (size_t)va_arg(*ap, size_t);
-	else if (p->lenght == j)
-		temp = (long long)va_arg(*ap, long long);
-	else if (p->lenght == l)
-		temp = (long)va_arg(*ap, long);
-	else
-		temp = (long)va_arg(*ap, long);
-	len = ft_put_int(temp, p);
-	return (len);
-}
-
-int			ft_put_int(long long num, t_param *param)
-{
-	int			minus;
-	char		symb;
-	int			len;
-	char		*temp;
-	char		*temp1;
-	char		*str;
-
-	symb = ' ';
-	if (param->prec != 0 || param->zero == 1)
-		symb = '0';
-	minus = 0;
-	if (num < 0)
-	{
-		num = num * -1;
-		minus = 1;
-	}
-	str = ft_itoa_base(num, 10);
-	if (param->prec > (int)ft_strlen(str))
-	{
-		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), symb);
-		temp = ft_strjoin(temp1, str);
-		free(temp1);
-		str = temp;
-	}
-	if (minus)
-	{
-		temp = ft_strjoin("-", str);
-		free(str);
-		str = temp;
-	}
-	if (param->width > (int)ft_strlen(str))
-	{
-		if (param->left == 1)
-		{
-			temp1 = ft_new_n_symb(param->width - ft_strlen(str), ' ');
-			temp = ft_strjoin(str, temp1);
-		}
-		else
-		{
-			temp1 = ft_new_n_symb(param->width - ft_strlen(str), ' ');
-			temp = ft_strjoin(temp1, str);
-		}
-		free(temp1);
-		str = temp;
-	}
-	ft_putstr(str);
-	len = ft_strlen(str);
-	free(str);
-	return (len);
+	return (ft_put_int(temp, p));
 }
 
 int			ft_print_ouxx(va_list *ap, t_param *p)
 {
 	unsigned long long	temp;
-	char				*str;
-	int					len;
 
 	if (p->lenght == hh)
 		temp = (unsigned char)va_arg(*ap, int);
@@ -125,47 +49,120 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 		temp = va_arg(*ap, unsigned long);
 	else
 		temp = (unsigned int)va_arg(*ap, unsigned int);
-	str = ft_itoa_base(temp, ft_get_base(p));
-	ft_add_xx(str, p);
-	len = ft_normalize_ouxx(str, p);
+	if (p->type == 'o' || p->type == 'O')
+		return (ft_put_int_o(temp, p));
+	if (p->type == 'u' || p->type == 'U')
+		return (ft_put_int_u(temp, p));
+	if (p->type == 'x' || p->type == 'X')
+		return (ft_put_int_x(temp, p));
+	return (0);
+}
+
+int			ft_print_ld(va_list *ap, t_param *p)
+{
+	long long	temp;
+
+	if (p->lenght == ll)
+		temp = (long long)va_arg(*ap, long long);
+	else if (p->lenght == z)
+		temp = (size_t)va_arg(*ap, size_t);
+	else if (p->lenght == j)
+		temp = (long long)va_arg(*ap, long long);
+	else if (p->lenght == l)
+		temp = (long)va_arg(*ap, long);
+	else
+		temp = (long)va_arg(*ap, long);
+	return (ft_put_int(temp, p));
+}
+
+int			ft_put_int(long long num, t_param *param)
+{
+	int			minus;
+	int			len;
+	char		*temp;
+	char		*str;
+
+	minus = 0;
+	if (num < 0)
+	{
+		num = num * -1;
+		minus = 1;
+	}
+	str = ft_itoa_base(num, 10);
+	if (minus)
+		str = ft_strjoin("-", str);
+	if (param->prec > ft_strlen(str))
+	{
+		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp, minus);
+	}
+	str = ft_modify_width_id(str, minus, param);
+	ft_putstr(str);
+	len = ft_strlen(str);
 	free(str);
 	return (len);
 }
 
-int			ft_normalize_ouxx(char *str, t_param *param)
-{
-	char	symb;
-	char	*temp;
-	char	*temp1;
-	int		len;
 
-	symb = ' ';
-	if (param->prec != 0 || param->zero == 1)
-		symb = '0';
-	if (param->prec > (int)ft_strlen(str))
+int 		ft_put_int_u(unsigned long long	temp, t_param* param)
+{
+	char 		*str;
+	int 		len;
+	char		*temp1;
+
+	str = ft_itoa_base(temp, ft_get_base(param));
+	if (param->prec > ft_strlen(str))
 	{
-		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), symb);
-		temp = ft_strjoin(temp1, str);
-		free(temp1);
-		str = temp;
+		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp1, 0);
 	}
-	if (param->width > (int)ft_strlen(str))
-	{
-		if (param->left == 1)
-		{
-			temp1 = ft_new_n_symb(param->width - ft_strlen(str), ' ');
-			temp = ft_strjoin(str, temp1);
-		}
-		else
-		{
-			temp1 = ft_new_n_symb(param->width - ft_strlen(str), symb);
-			temp = ft_strjoin(temp1, str);
-		}
-		free(temp1);
-		str = temp;
-	}
+	str = ft_modify_width_id(str, 0, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
+	free(str);
+	return (len);
+}
+
+int 		ft_put_int_o(unsigned long long	temp, t_param* param)
+{
+	char 		*str;
+	int 		len;
+	char		*temp1;
+
+	str = ft_itoa_base(temp, ft_get_base(param));
+	if (param->altern == 1)
+		str = ft_strjoin("0", str);
+	if (param->prec > ft_strlen(str))
+	{
+		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp1, 0);
+	}
+	str = ft_modify_width_id(str, 0, param);
+	ft_putstr(str);
+	len = ft_strlen(str);
+	free(str);
+	return (len);
+}
+
+int 		ft_put_int_x(unsigned long long	temp, t_param* param)
+{
+	char 		*str;
+	int 		len;
+	char		*temp1;
+
+	str = ft_itoa_base(temp, ft_get_base(param));
+	if (param->altern == 1)
+		str = ft_strjoin("0x", str);
+	ft_add_xx(str, param);
+	if (param->prec > ft_strlen(str))
+	{
+		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp1, 2);
+	}
+	str = ft_modify_width_id(str, 2, param);
+	ft_putstr(str);
+	len = ft_strlen(str);
+	free(str);
 	return (len);
 }
 

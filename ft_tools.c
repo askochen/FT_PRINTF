@@ -12,30 +12,6 @@
 
 #include "ft_printf.h"
 
-void	ft_put_n_symbols(char s, int n)
-{
-	int		i;
-
-	i = 0;
-	while (i < n)
-	{
-		++i;
-		ft_putchar(s);
-	}
-}
-
-void	ft_put_str_n(char *str, int n)
-{
-	int		i;
-
-	i = 0;
-	while (i < n && str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		++i;
-	}
-}
-
 char	*ft_new_n_symb(int len, char symb)
 {
 	int		i;
@@ -51,24 +27,104 @@ char	*ft_new_n_symb(int len, char symb)
 	return (str);
 }
 
-void	ft_print_left(char *str, int size, int prec, int bool, char symb)
+char	*ft_insert_with_free(char *str1, char *str2, int pos)
 {
-	int		len;
+	int 	len;
+	char 	*temp;
+	int 	i;
+	char 	*del1;
+	char	*del2;
 
-	len = ft_strlen(str);
-	if (prec < 1)
-		prec = len;
-	if (len < size)
-		if (bool == 1)
-		{
-			ft_put_str_n(str, prec);
-			ft_put_n_symbols(symb, size - prec);
-		}
+	del1 = str1;
+	del2 = str2;
+	len = ft_strlen(str1) + ft_strlen(str2);
+	temp = ft_strnew(len);
+	i = 0;
+	if (pos < 0)
+		pos = 0;
+	if (pos > ft_strlen(str2))
+		pos = ft_strlen(str2);
+	while (i < len)
+		if (i == pos)
+			while (*str2 != '\0')
+				temp[i++] = *(str2++);
 		else
-		{
-			ft_put_n_symbols(symb, size - prec);
-			ft_put_str_n(str, prec);
-		}
-	else
-		ft_putstr(str);
+			temp[i++] = *(str1++);
+	free(del1);
+	free(del2);
+	return (temp);
 }
+
+char 	*ft_cut_str(char* str, int size)
+{
+	char* 	temp;
+	int 	i;
+
+	i = 0;
+	if (size < 0)
+		size = 0;
+	if (size > ft_strlen(str))
+		size = ft_strlen(str);
+	temp = ft_strnew(size);
+	while ( i < size)
+	{
+		temp[i] = str[i];
+		++i;
+	}
+	free(str);
+	return (temp);
+}
+
+char 	ft_set_symb(t_param* param)
+{
+	char symb;
+
+	if (param->zero == 1)
+		symb = '0';
+	else
+		symb = ' ';
+	return (symb);
+}
+
+char* 	 ft_modify_width_id(char *str, int minus, t_param *param)
+{
+	int pos;
+	char symb;
+	char *temp;
+
+	if (param->left == 0 && param->zero == 1)
+		symb = '0';
+	else
+		symb = ' ';
+	if (param->width > ft_strlen(str))
+	{
+		if (param->left == 1)
+			pos = ft_strlen(str);
+		else
+			if (symb == '0')
+				pos = minus;
+			else
+				pos = 0;
+		temp = ft_new_n_symb(param->width - ft_strlen(str), ft_set_symb(param));
+		str = ft_insert_with_free(str, temp, pos);
+	}
+	return (str);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

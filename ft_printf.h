@@ -60,25 +60,27 @@ void		ft_parse_flags(t_param *param, char *str);
 //	ft_print_with_params.c
 int			ft_print_with_params(va_list *ap, t_param *param);
 int			ft_is_persent(t_param *param);
-int			ft_print_persent(void);
+int			ft_print_persent(t_param *param);
 
 //	ft_tools.c
-void		ft_put_n_symbols(char symb, int n);
-void		ft_put_str_n(char *str, int n);
-void		ft_print_left(char *str, int size, int prec, int bool, char symb);
 char		*ft_new_n_symb(int len, char symb);
+char		*ft_insert_with_free(char *str1, char *str2, int pos);
+char 		*ft_cut_str(char* str, int size);
+char 		ft_set_symb(t_param* param);
+char* 		ft_modify_width_id(char *str, int minus, t_param *param);
 
 // ft_print_string.c
 int			ft_is_string(t_param *param);
 int			ft_print_str(va_list *ap, t_param *param);
-
-//	ft_w_str_tools.c
+int 		ft_print_low_str(va_list *ap, t_param *p);
 int			w_char_len(wchar_t w_c);
-int			ft_s_high(va_list *ap, t_param *param);
+int			ft_print_hight_str(va_list *ap, t_param *param);
 
 //	ft_print_char.c
 int			ft_is_char(t_param *param);
 int			ft_prit_char(va_list *ap, t_param *param);
+int 		ft_print_low_char(va_list *ap, t_param *p);
+int			ft_print_hight_char(va_list *ap, t_param *param);
 
 //	ft_w_char_tools.c
 int			use_mask_0(unsigned int w_c, unsigned int mask);
@@ -90,19 +92,22 @@ int			use_mask(wchar_t w_c);
 //	ft_print_ptr.c
 int			ft_is_ptr(t_param *param);
 int			ft_print_ptr(va_list *ap, t_param *param);
-int			ft_get_base(t_param *param);
 
 //	ft_print_int.c
 int			ft_is_int(t_param *param);
 int			ft_print_int(va_list *ap, t_param *param);
+int			ft_get_base(t_param *param);
 
 //	ft_printf_int2.c
 int			ft_print_id(va_list *ap, t_param *param);
 int			ft_print_ouxx(va_list *ap, t_param *param);
-int			ft_normalize_ouxx(char *str, t_param *param);
-void		ft_add_xx(char *str, t_param *param);
-int			ft_put_int(long long num, t_param *param);
 int			ft_print_ld(va_list *ap, t_param *p);
+int			ft_put_int(long long num, t_param *param);
+int 		ft_put_int_u(unsigned long long	temp, t_param* param);
+int 		ft_put_int_o(unsigned long long	temp, t_param* param);
+int 		ft_put_int_x(unsigned long long	temp, t_param* param);
+void		ft_add_xx(char *str, t_param *param);
+
 //	ft_print_double.c
 int			ft_is_double(t_param *param);
 int			ft_print_double(va_list *ap, t_param *param);
