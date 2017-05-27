@@ -89,19 +89,19 @@ char 	ft_set_symb(t_param* param)
 char* 	 ft_modify_width_id(char *str, int minus, t_param *param)
 {
 	int pos;
-	char symb;
+	//char symb;
 	char *temp;
 
-	if (param->left == 0 && param->zero == 1)
+/*	if (param->left == 0 && param->zero == 1)
 		symb = '0';
 	else
-		symb = ' ';
+		symb = ' ';*/
 	if (param->width > ft_strlen(str))
 	{
 		if (param->left == 1)
 			pos = ft_strlen(str);
 		else
-			if (symb == '0' || param->sign == 1 || param->space == 1)
+			if (param->sign == 1 || param->space == 1)
 				pos = 1;
 			else
 				pos = 0;
