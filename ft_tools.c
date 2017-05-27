@@ -42,8 +42,8 @@ char	*ft_insert_with_free(char *str1, char *str2, int pos)
 	i = 0;
 	if (pos < 0)
 		pos = 0;
-	if (pos > ft_strlen(str2))
-		pos = ft_strlen(str2);
+	if (pos > ft_strlen(str1))
+		pos = ft_strlen(str1);
 	while (i < len)
 		if (i == pos)
 			while (*str2 != '\0')
@@ -71,6 +71,7 @@ char 	*ft_cut_str(char* str, int size)
 		temp[i] = str[i];
 		++i;
 	}
+	temp[i] = '\0';
 	free(str);
 	return (temp);
 }
@@ -79,7 +80,7 @@ char 	ft_set_symb(t_param* param)
 {
 	char symb;
 
-	if (param->zero == 1)
+	if (param->zero == 1 && param->prec == 0)
 		symb = '0';
 	else
 		symb = ' ';
@@ -89,13 +90,8 @@ char 	ft_set_symb(t_param* param)
 char* 	 ft_modify_width_id(char *str, int minus, t_param *param)
 {
 	int pos;
-	//char symb;
 	char *temp;
 
-/*	if (param->left == 0 && param->zero == 1)
-		symb = '0';
-	else
-		symb = ' ';*/
 	if (param->width > ft_strlen(str))
 	{
 		if (param->left == 1)
