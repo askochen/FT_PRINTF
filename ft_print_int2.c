@@ -96,19 +96,19 @@ int			ft_put_int(long long num, t_param *param)
 	else
 		{
 			if (param->sign == 1)
-				str = ft_strjoin("+", str);
-			else if (param->space == 1)
-				str = ft_strjoin(" ", str);	
+				str = ft_strjoin("+", str);	
 			}
 	if (param->prec > ft_strlen(str))
 	{
-		if (minus == 1 || param->sign == 1 || param->space == 1)
+		if (minus == 1 || param->sign == 1)
 		{
 			pos = 1;
 		}
 		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, pos);
 	}
+	if (param->space == 1)
+				str = ft_strjoin(" ", str);
 	str = ft_modify_width_id(str, minus, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
