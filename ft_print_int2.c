@@ -14,7 +14,7 @@
 
 int			ft_print_id(va_list *ap, t_param *p)
 {
-	long long	temp;
+	intmax_t	temp;
 
 	if (p->lenght == hh)
 		temp = (signed char)va_arg(*ap, int);
@@ -35,7 +35,7 @@ int			ft_print_id(va_list *ap, t_param *p)
 
 int			ft_print_ouxx(va_list *ap, t_param *p)
 {
-	unsigned long long	temp;
+	uintmax_t	temp;
 
 	if (p->lenght == hh)
 		temp = (unsigned char)va_arg(*ap, int);
@@ -75,7 +75,7 @@ int			ft_print_ld(va_list *ap, t_param *p)
 	return (ft_put_int(temp, p));
 }
 
-int			ft_put_int(long long num, t_param *param)
+int			ft_put_int(intmax_t num, t_param *param)
 {
 	int			minus;
 	int			len;
@@ -117,7 +117,7 @@ int			ft_put_int(long long num, t_param *param)
 }
 
 
-int 		ft_put_int_u(unsigned long long	temp, t_param* param)
+int 		ft_put_int_u(uintmax_t	temp, t_param* param)
 {
 	char 		*str;
 	int 		len;
@@ -136,7 +136,7 @@ int 		ft_put_int_u(unsigned long long	temp, t_param* param)
 	return (len);
 }
 
-int 		ft_put_int_o(unsigned long long	temp, t_param* param)
+int 		ft_put_int_o(uintmax_t	temp, t_param* param)
 {
 	char 		*str;
 	int 		len;
@@ -157,7 +157,7 @@ int 		ft_put_int_o(unsigned long long	temp, t_param* param)
 	return (len);
 }
 
-int 		ft_put_int_x(unsigned long long	temp, t_param* param)
+int 		ft_put_int_x(uintmax_t	temp, t_param* param)
 {
 	char 		*str;
 	int 		len;

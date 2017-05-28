@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_count_base(long long int nb, long long int base)
+int		ft_count_base(uintmax_t nb, long long int base)
 {
 	if (nb == 0)
 		return (1);
@@ -22,7 +22,7 @@ int		ft_count_base(long long int nb, long long int base)
 		return (ft_count_base(nb / base, base) + 1);
 }
 
-char	*ft_itoa_base(long long int n, long long int base)
+char	*ft_itoa_base(uintmax_t n, long long int base)
 {
 	int			len;
 	char		*temp;

@@ -106,10 +106,10 @@ int			ft_get_base(t_param *param);
 int			ft_print_id(va_list *ap, t_param *param);
 int			ft_print_ouxx(va_list *ap, t_param *param);
 int			ft_print_ld(va_list *ap, t_param *p);
-int			ft_put_int(long long num, t_param *param);
-int 		ft_put_int_u(unsigned long long	temp, t_param* param);
-int 		ft_put_int_o(unsigned long long	temp, t_param* param);
-int 		ft_put_int_x(unsigned long long	temp, t_param* param);
+int			ft_put_int(intmax_t num, t_param *param);
+int 		ft_put_int_u(uintmax_t	temp, t_param* param);
+int 		ft_put_int_o(uintmax_t	temp, t_param* param);
+int 		ft_put_int_x(uintmax_t	temp, t_param* param);
 void		ft_add_xx(char *str, t_param *param);
 
 //	ft_print_double.c
@@ -117,8 +117,8 @@ int			ft_is_double(t_param *param);
 int			ft_print_double(va_list *ap, t_param *param);
 
 //	ft_itoa_base.c
-int			ft_count_base(long long int nb, long long int base);
-char		*ft_itoa_base(long long int n, long long int base);
+int			ft_count_base(uintmax_t nb, long long int base);
+char		*ft_itoa_base(uintmax_t n, long long int base);
 
 //	ft_ftoa_base.c
 char		*ft_dtoa_base(double value, int base);
