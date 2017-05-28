@@ -71,5 +71,5 @@ int 	ft_print_hight_char(va_list *ap, t_param *param)
 
 	(void)param;
 	c = (wchar_t*)va_arg(*ap, void *);
-	return (use_mask(*c));
+	return (use_mask(c[0]));
 }
