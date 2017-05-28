@@ -52,13 +52,11 @@ int		ft_print_int(va_list *ap, t_param *p)
 
 int		ft_get_base(t_param *param)
 {
-	if (param->type == 'i')
-		return (10);
-	if (param->type == 'd')
+	if (param->type == 'i' || param->type == 'd' || param->type == 'D')
 		return (10);
 	if (param->type == 'o' || param->type == 'O')
 		return (8);
-	if (param->type == 'u')
+	if (param->type == 'u'  || param->type == 'U')
 		return (10);
 	if (param->type == 'x' || param->type == 'X')
 		return (16);
