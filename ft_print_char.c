@@ -67,8 +67,9 @@ int 	ft_print_low_char(va_list *ap, t_param *p)
 
 int 	ft_print_hight_char(va_list *ap, t_param *param)
 {
-	wchar_t		w_c;
+	wchar_t		c;
 
-	w_c = (wchar_t)va_arg(*ap, void *);
-	return (use_mask(w_c));
+	(void)param;
+	c = (wchar_t)va_arg(*ap, void *);
+	return (use_mask(c));
 }
