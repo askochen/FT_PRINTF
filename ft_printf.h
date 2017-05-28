@@ -17,9 +17,7 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include <inttypes.h>
-# include <stdint.h>
-# include <limits.h>
+
 
 typedef struct		s_param
 {
