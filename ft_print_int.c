@@ -18,15 +18,11 @@ int		ft_is_int(t_param *param)
 		return (1);
 	if (param->type == 'd')
 		return (1);
-	if (param->type == 'D')
-		return (1);
 	if (param->type == 'o')
 		return (1);
 	if (param->type == 'O')
 		return (1);
 	if (param->type == 'u')
-		return (1);
-	if (param->type == 'U')
 		return (1);
 	if (param->type == 'x')
 		return (1);
