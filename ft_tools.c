@@ -29,10 +29,10 @@ char	*ft_new_n_symb(int len, char symb)
 
 char	*ft_insert_with_free(char *str1, char *str2, int pos)
 {
-	int 	len;
-	char 	*temp;
-	int 	i;
-	char 	*del1;
+	int		len;
+	char	*temp;
+	int		i;
+	char	*del1;
 	char	*del2;
 
 	del1 = str1;
@@ -55,10 +55,10 @@ char	*ft_insert_with_free(char *str1, char *str2, int pos)
 	return (temp);
 }
 
-char 	*ft_cut_str(char* str, int size)
+char	*ft_cut_str(char *str, int size)
 {
-	char* 	temp;
-	int 	i;
+	char		*temp;
+	int			i;
 
 	i = 0;
 	if (size < 0)
@@ -66,7 +66,7 @@ char 	*ft_cut_str(char* str, int size)
 	if (size > ft_strlen(str))
 		size = ft_strlen(str);
 	temp = ft_strnew(size);
-	while ( i < size)
+	while (i < size)
 	{
 		temp[i] = str[i];
 		++i;
@@ -76,9 +76,9 @@ char 	*ft_cut_str(char* str, int size)
 	return (temp);
 }
 
-char 	ft_set_symb(t_param* param)
+char	ft_set_symb(t_param *param)
 {
-	char symb;
+	char	symb;
 
 	if (param->zero == 1 && param->prec == 0)
 		symb = '0';
@@ -87,40 +87,24 @@ char 	ft_set_symb(t_param* param)
 	return (symb);
 }
 
-char* 	 ft_modify_width_id(char *str, int minus, t_param *param)
+char	*ft_modify_width_id(char *str, int minus, t_param *param)
 {
-	int pos;
-	char *temp;
+	int		pos;
+	char	*temp;
 
 	if (param->width > ft_strlen(str))
 	{
 		if (param->left == 1)
 			pos = ft_strlen(str);
 		else
+		{
 			if (param->sign == 1 || param->space == 1)
 				pos = 1;
 			else
 				pos = 0;
+		}
 		temp = ft_new_n_symb(param->width - ft_strlen(str), ft_set_symb(param));
 		str = ft_insert_with_free(str, temp, pos);
 	}
 	return (str);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

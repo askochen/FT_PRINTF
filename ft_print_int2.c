@@ -81,7 +81,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 	int			len;
 	char		*temp;
 	char		*str;
-	int 		pos;
+	int			pos;
 
 	minus = 0;
 	if (num < 0)
@@ -94,10 +94,10 @@ int			ft_put_int(intmax_t num, t_param *param)
 	if (minus)
 		str = ft_strjoin("-", str);
 	else
-		{
-			if (param->sign == 1)
-				str = ft_strjoin("+", str);	
-			}
+	{
+		if (param->sign == 1)
+			str = ft_strjoin("+", str);
+	}
 	if (param->prec > ft_strlen(str))
 	{
 		if (minus == 1 || param->sign == 1)
@@ -108,7 +108,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 		str = ft_insert_with_free(str, temp, pos);
 	}
 	if (param->space == 1 && minus == 0)
-				str = ft_strjoin(" ", str);
+		str = ft_strjoin(" ", str);
 	str = ft_modify_width_id(str, minus, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
@@ -116,11 +116,10 @@ int			ft_put_int(intmax_t num, t_param *param)
 	return (len);
 }
 
-
-int 		ft_put_int_u(uintmax_t	temp, t_param* param)
+int		ft_put_int_u(uintmax_t temp, t_param *param)
 {
-	char 		*str;
-	int 		len;
+	char		*str;
+	int			len;
 	char		*temp1;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
@@ -136,10 +135,10 @@ int 		ft_put_int_u(uintmax_t	temp, t_param* param)
 	return (len);
 }
 
-int 		ft_put_int_o(uintmax_t	temp, t_param* param)
+int		ft_put_int_o(uintmax_t temp, t_param *param)
 {
-	char 		*str;
-	int 		len;
+	char		*str;
+	int			len;
 	char		*temp1;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
@@ -157,10 +156,10 @@ int 		ft_put_int_o(uintmax_t	temp, t_param* param)
 	return (len);
 }
 
-int 		ft_put_int_x(uintmax_t	temp, t_param* param)
+int		ft_put_int_x(uintmax_t temp, t_param *param)
 {
-	char 		*str;
-	int 		len;
+	char		*str;
+	int			len;
 	char		*temp1;
 
 	str = ft_itoa_base(temp, ft_get_base(param));

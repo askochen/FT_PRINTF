@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		ft_is_string(t_param *param)
+int			ft_is_string(t_param *param)
 {
 	if (param->type == 's' || param->type == 'S')
 		return (1);
@@ -20,23 +20,23 @@ int		ft_is_string(t_param *param)
 		return (0);
 }
 
-int		ft_print_str(va_list *ap, t_param *p)
+int			ft_print_str(va_list *ap, t_param *p)
 {
-	if (p->type == 's'  && p->lenght != l) 
+	if (p->type == 's' && p->lenght != l)
 		return (ft_print_low_str(ap, p));
-	else if (p->type == 'S'  && p->lenght == l)
+	else if (p->type == 'S' && p->lenght == l)
 		return (ft_print_low_str(ap, p));
 	else
 		return (ft_print_hight_str(ap, p));
 }
 
-int ft_print_low_str(va_list *ap, t_param *p)
+int			ft_print_low_str(va_list *ap, t_param *p)
 {
 	char	*temp;
 	char	*str;
-	char 	*temp1;
+	char	*temp1;
 	int		len;
-	int 	pos;
+	int		pos;
 
 	temp = va_arg(*ap, char*);
 	str = ft_strdup(temp);
@@ -56,7 +56,6 @@ int ft_print_low_str(va_list *ap, t_param *p)
 	free(str);
 	return (len);
 }
-
 
 int			w_char_len(wchar_t w_c)
 {

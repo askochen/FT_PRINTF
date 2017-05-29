@@ -17,9 +17,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include <inttypes.h>
-# include <stdint.h>
-# include <limits.h>
 
 typedef struct		s_param
 {
@@ -68,22 +65,22 @@ int			ft_print_persent(t_param *param);
 //	ft_tools.c
 char		*ft_new_n_symb(int len, char symb);
 char		*ft_insert_with_free(char *str1, char *str2, int pos);
-char 		*ft_cut_str(char* str, int size);
-char 		ft_set_symb(t_param* param);
-char* 		ft_modify_width_id(char *str, int minus, t_param *param);
+char		*ft_cut_str(char *str, int size);
+char		ft_set_symb(t_param *param);
+char		*ft_modify_width_id(char *str, int minus, t_param *param);
 
 // ft_print_string.c
 int			ft_is_string(t_param *param);
 int			ft_print_str(va_list *ap, t_param *param);
-int 		ft_print_low_str(va_list *ap, t_param *p);
+int			ft_print_low_str(va_list *ap, t_param *p);
 int			w_char_len(wchar_t w_c);
 int			ft_print_hight_str(va_list *ap, t_param *param);
 
 //	ft_print_char.c
 int			ft_is_char(t_param *param);
 int			ft_prit_char(va_list *ap, t_param *param);
-int 		ft_print_simple_ch(va_list* ap);
-int 		ft_print_low_char(va_list *ap, t_param *p);
+int			ft_print_simple_ch(va_list *ap);
+int			ft_print_low_char(va_list *ap, t_param *p);
 int			ft_print_hight_char(va_list *ap, t_param *param);
 
 //	ft_w_char_tools.c
@@ -107,9 +104,9 @@ int			ft_print_id(va_list *ap, t_param *param);
 int			ft_print_ouxx(va_list *ap, t_param *param);
 int			ft_print_ld(va_list *ap, t_param *p);
 int			ft_put_int(intmax_t num, t_param *param);
-int 		ft_put_int_u(uintmax_t	temp, t_param* param);
-int 		ft_put_int_o(uintmax_t	temp, t_param* param);
-int 		ft_put_int_x(uintmax_t	temp, t_param* param);
+int			ft_put_int_u(uintmax_t	temp, t_param *param);
+int			ft_put_int_o(uintmax_t	temp, t_param *param);
+int			ft_put_int_x(uintmax_t	temp, t_param *param);
 void		ft_add_xx(char *str, t_param *param);
 
 //	ft_print_double.c
