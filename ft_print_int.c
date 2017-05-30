@@ -56,7 +56,7 @@ int		ft_get_base(t_param *param)
 		return (10);
 	if (param->type == 'o' || param->type == 'O')
 		return (8);
-	if (param->type == 'u' || param->type == 'U')
+	if (param->type == 'u'  || param->type == 'U')
 		return (10);
 	if (param->type == 'x' || param->type == 'X')
 		return (16);

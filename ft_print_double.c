@@ -12,8 +12,8 @@
 
 #include "ft_printf.h"
 
-int		ft_is_double(t_param *param)
-{
+int		ft_is_double(t_param* param)
+{	
 	if (param->type == 'a')
 		return (1);
 	if (param->type == 'A')
@@ -25,7 +25,7 @@ int		ft_is_double(t_param *param)
 	if (param->type == 'f')
 		return (1);
 	if (param->type == 'F')
-		return (1);
+			return (1);
 	if (param->type == 'g')
 		return (1);
 	if (param->type == 'G')
@@ -33,10 +33,10 @@ int		ft_is_double(t_param *param)
 	return (0);
 }
 
-int		ft_print_double(va_list *ap, t_param *param)
+int		ft_print_double(va_list* ap, t_param* param)
 {
 	double	temp;
-	char	*str;
+	char*	str;
 
 	temp = (double)va_arg(*ap, double);
 	str = ft_dtoa_base(temp, 10);
