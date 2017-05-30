@@ -29,7 +29,7 @@ int		ft_prit_char(va_list *ap, t_param *p)
 		//return (ft_print_low_char(ap, p));
 		return (ft_print_simple_ch(ap));
 	else
-		return (ft_print_hight_char(ap, p));
+		return (ft_print_low_char(ap, p));
 }
 
 int		ft_print_simple_ch(va_list *ap)
