@@ -22,21 +22,17 @@ int		ft_is_char(t_param *param)
 
 int		ft_prit_char(va_list *ap, t_param *p)
 {
-	// for site
-	return (ft_print_low_char(ap, p));
-
-	//for test
-/*	if (p->type == 'c'  && p->lenght != l) 
-		return (ft_print_low_char(ap, p));
-		//return (ft_print_simple_ch(ap));
-	else if (p->type == 'C'  && p->lenght == l)
-		return (ft_print_low_char(ap, p));
-		//return (ft_print_simple_ch(ap));
+	if (p->type == 'c' && p->lenght != l)
+		//return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
+	else if (p->type == 'C' && p->lenght == l)
+		//return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
 	else
-		return (ft_print_hight_char(ap, p));*/
+		return (ft_print_hight_char(ap, p));
 }
 
-int ft_print_simple_ch(va_list* ap)
+int		ft_print_simple_ch(va_list *ap)
 {
 	char ch;
 
@@ -45,20 +41,15 @@ int ft_print_simple_ch(va_list* ap)
 	return (1);
 }
 
-int 	ft_print_low_char(va_list *ap, t_param *p)
+int		ft_print_low_char(va_list *ap, t_param *p)
 {
 	char		*temp;
-	char 		*temp1;
-	int 		len;
-	int 		pos;
+	char		*temp1;
+	int			len;
+	int			pos;
 
 	temp = ft_strnew(1);
 	*temp = (char)va_arg(*ap, int);
-	if (*temp == 0)
-	{
-		free(temp);
-		temp = ft_strnew(0);
-	}
 	if (p->width > ft_strlen(temp))
 	{
 		if (p->left == 1)
@@ -74,7 +65,7 @@ int 	ft_print_low_char(va_list *ap, t_param *p)
 	return (len);
 }
 
-int 	ft_print_hight_char(va_list *ap, t_param *param)
+int		ft_print_hight_char(va_list *ap, t_param *param)
 {
 	wchar_t		c;
 

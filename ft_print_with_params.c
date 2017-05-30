@@ -11,16 +11,16 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
+//#include <stdio.h>
 
 void	ft_print_param(t_param *param)
 {
 
-	printf("This is params)))\n");
-	printf("flags: left->%c, zero->%c, space->%c, sign->%c, altern->%c\n",param->left, param->zero,param->space, param->sign, param->altern);
+	//printf("This is params)))\n");
+	//printf("flags: left->%c, zero->%c, space->%c, sign->%c, altern->%c\n",param->left, param->zero,param->space, param->sign, param->altern);
 
-	printf("width: %i\n", param->width);
-	printf("precesion: %i\n", param->prec);
+	//printf("width: %i\n", param->width);
+	//printf("precesion: %i\n", param->prec);
 
 		//lenght -> hh, ll, l, h, z, j
 	if (param->lenght == none)

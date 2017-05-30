@@ -86,12 +86,9 @@ int		use_mask(wchar_t value)
 	unsigned int	mask2;
 	unsigned int	mask3;
 
-/*	mask1 = 49280;
-	mask2 = 14712960;
-	mask3 = 4034953344;*/
 	mask1 = 49280;
-	mask2 = 49280;
-	mask3 = 49280;
+	mask2 = 14712960;
+	mask3 = 4034953344;
 	v = value;
 	if (value <= 127)
 		return (use_mask_0(v, 0));
