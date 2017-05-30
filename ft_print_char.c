@@ -23,7 +23,7 @@ int		ft_is_char(t_param *param)
 int		ft_prit_char(va_list *ap, t_param *p)
 {
 	// for site
-	return (ft_print_low_ch(ap, p));
+	return (ft_print_low_char(ap, p));
 
 	//for test
 /*	if (p->type == 'c'  && p->lenght != l) 
