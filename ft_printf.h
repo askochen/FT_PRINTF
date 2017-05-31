@@ -41,6 +41,7 @@ typedef struct		s_param
 
 	// additional counter
 	int				count;
+	int 			error;
 }					t_param;
 
 //	ft_printf.c
@@ -119,4 +120,5 @@ char		*ft_itoa_base(uintmax_t n, long long int base);
 
 //	ft_ftoa_base.c
 char		*ft_dtoa_base(double value, int base);
+void 		ft_error(t_param* param);
 #endif
