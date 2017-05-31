@@ -16,9 +16,9 @@ void		ft_parse_type(t_param *c_param, char *str)
 {
 	c_param->type = str[c_param->count];
 	c_param->count = c_param->count + 1;
-	/*if (!(ft_is_int(c_p) || ft_is_double(c_p) || ft_is_ptr(c_p) \
+	if (!(ft_is_int(c_p) || ft_is_double(c_p) || ft_is_ptr(c_p) \
 		|| ft_is_char(c_p) || ft_is_string(c_p)))
-			ft_error(c_p);*/
+			ft_error(c_p);
 }
 
 t_param		*ft_new_params(va_list *ap, char *str)
