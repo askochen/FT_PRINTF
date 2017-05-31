@@ -24,10 +24,10 @@ int		ft_prit_char(va_list *ap, t_param *p)
 {
 	if (p->type == 'c' && p->lenght != l)
 		//return (ft_print_low_char(ap, p));
-		return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
 	else if (p->type == 'C' && p->lenght == l)
 		//return (ft_print_low_char(ap, p));
-		return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
 	else
 		return (ft_print_low_char(ap, p));
 }
