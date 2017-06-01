@@ -87,22 +87,15 @@ char	ft_set_symb(t_param *param)
 	return (symb);
 }
 
-char	*ft_modify_width_id(char *str, int minus, t_param *param)
+char	*ft_modify_width_id(char *str, int pos, t_param *param)
 {
-	int		pos;
 	char	*temp;
 
 	if (param->width > ft_strlen(str))
 	{
 		if (param->left == 1)
 			pos = ft_strlen(str);
-		else
-		{
-			if (param->sign == 1 || param->space == 1)
-				pos = 1;
-			else
-				pos = 0;
-		}
+		
 		temp = ft_new_n_symb(param->width - ft_strlen(str), ft_set_symb(param));
 		str = ft_insert_with_free(str, temp, pos);
 	}

@@ -72,6 +72,7 @@ char		*ft_insert_with_free(char *str1, char *str2, int pos);
 char		*ft_cut_str(char *str, int size);
 char		ft_set_symb(t_param *param);
 char		*ft_modify_width_id(char *str, int minus, t_param *param);
+char* 		ft_modify_prec_id(char* str, t_param* param);
 
 // ft_print_string.c
 int			ft_is_string(t_param *param);
@@ -90,6 +91,7 @@ int			ft_print_hight_char(va_list *ap, t_param *param);
 //	ft_w_char_tools.c
 int			use_mask_0(unsigned int w_c, unsigned int mask);
 int			use_mask_1(unsigned int w_c, unsigned int mask);
+
 int			use_mask_2(unsigned int w_c, unsigned int mask);
 int			use_mask_3(unsigned int w_c, unsigned int mask);
 int			use_mask(wchar_t w_c);
@@ -123,5 +125,7 @@ char		*ft_itoa_base(uintmax_t n, long long int base);
 
 //	ft_ftoa_base.c
 char		*ft_dtoa_base(double value, int base);
-void 		ft_error(t_param* param);
+
+//   ft_erroc.c
+void		ft_error(t_param* param);
 #endif

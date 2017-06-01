@@ -17,9 +17,9 @@ int			ft_print_id(va_list *ap, t_param *p)
 	intmax_t	temp;
 
 	if (p->lenght == hh)
-		temp = (signed char)va_arg(*ap, int);
+		temp = (signed char)va_arg(*ap, signed char);
 	else if (p->lenght == h)
-		temp = (short)va_arg(*ap, int);
+		temp = (short)va_arg(*ap, short);
 	else if (p->lenght == ll)
 		temp = va_arg(*ap, long long);
 	else if (p->lenght == l)
@@ -38,9 +38,9 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 	uintmax_t	temp;
 
 	if (p->lenght == hh)
-		temp = (unsigned char)va_arg(*ap, int);
+		temp = (unsigned char)va_arg(*ap, unsigned char);
 	else if (p->lenght == h)
-		temp = (unsigned short)va_arg(*ap, int);
+		temp = (unsigned short)va_arg(*ap, unsigned short);
 	else if (p->lenght == ll)
 		temp = va_arg(*ap, unsigned long long);
 	else if (p->lenght == l || p->lenght == j || p->lenght == z)
@@ -98,18 +98,16 @@ int			ft_put_int(intmax_t num, t_param *param)
 		if (param->sign == 1)
 			str = ft_strjoin("+", str);
 	}
+	if (minus == 1 || param->sign == 1 || param->space == 1)
+		pos = 1;
 	if (param->prec > ft_strlen(str))
 	{
-		if (minus == 1 || param->sign == 1)
-		{
-			pos = 1;
-		}
 		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, pos);
 	}
 	if (param->space == 1 && minus == 0)
 		str = ft_strjoin(" ", str);
-	str = ft_modify_width_id(str, minus, param);
+	str = ft_modify_width_id(str, pos, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
 	free(str);
@@ -140,16 +138,18 @@ int		ft_put_int_o(uintmax_t temp, t_param *param)
 	char		*str;
 	int			len;
 	char		*temp1;
+	int 		bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
-	if (param->altern == 1 && temp != 0)
+	bool = param->altern == 1 && temp != 0;
+	if (bool)
 		str = ft_strjoin("0", str);
 	if (param->prec > ft_strlen(str))
 	{
 		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp1, 0);
+		str = ft_insert_with_free(str, temp1, bool);
 	}
-	str = ft_modify_width_id(str, 0, param);
+	str = ft_modify_width_id(str, bool, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
 	free(str);
@@ -161,17 +161,19 @@ int		ft_put_int_x(uintmax_t temp, t_param *param)
 	char		*str;
 	int			len;
 	char		*temp1;
+	int 		bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
-	if (param->altern == 1)
+	bool = param->altern == 1 && temp != 0;
+	if (bool)
 		str = ft_strjoin("0x", str);
 	ft_add_xx(str, param);
 	if (param->prec > ft_strlen(str))
 	{
 		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp1, 2);
+		str = ft_insert_with_free(str, temp1, 2 * bool);
 	}
-	str = ft_modify_width_id(str, 2, param);
+	str = ft_modify_width_id(str, 2 * bool, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
 	free(str);
