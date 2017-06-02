@@ -56,6 +56,7 @@ void	ft_parse_precis(t_param *param, char *str, va_list *ap)
 	param->prec = 0;
 	if (*(str + param->count) == '.')
 	{
+		param->is_prec = 1;
 		param->count = param->count + 1;
 		if (*(str + param->count) == '*')
 		{

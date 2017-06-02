@@ -91,6 +91,16 @@ int			ft_put_int(intmax_t num, t_param *param)
 	}
 	pos = 0;
 	str = ft_itoa_base(num, 10);
+	if (param->is_prec && num == 0 && param->prec == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
+	if (param->prec > ft_strlen(str))
+	{
+		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp, pos);
+	}
 	if (minus)
 		str = ft_strjoin("-", str);
 	else
@@ -98,15 +108,10 @@ int			ft_put_int(intmax_t num, t_param *param)
 		if (param->sign == 1)
 			str = ft_strjoin("+", str);
 	}
+	if (param->space == 1 && minus == 0 && param->sign == 0)
+		str = ft_strjoin(" ", str);
 	if (minus == 1 || param->sign == 1 || param->space == 1)
 		pos = 1;
-	if (param->prec > ft_strlen(str))
-	{
-		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp, pos);
-	}
-	if (param->space == 1 && minus == 0)
-		str = ft_strjoin(" ", str);
 	str = ft_modify_width_id(str, pos, param);
 	ft_putstr(str);
 	len = ft_strlen(str);
@@ -141,6 +146,11 @@ int		ft_put_int_o(uintmax_t temp, t_param *param)
 	int 		bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
+	if (param->is_prec && temp == 0 && param->prec == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
 	bool = param->altern == 1 && temp != 0;
 	if (bool)
 		str = ft_strjoin("0", str);
@@ -165,6 +175,11 @@ int		ft_put_int_x(uintmax_t temp, t_param *param)
 
 	str = ft_itoa_base(temp, ft_get_base(param));
 	bool = param->altern == 1 && temp != 0;
+	if (param->is_prec && temp == 0 && param->prec == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
 	if (bool)
 		str = ft_strjoin("0x", str);
 	ft_add_xx(str, param);

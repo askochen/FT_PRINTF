@@ -39,7 +39,10 @@ int			ft_print_low_str(va_list *ap, t_param *p)
 	int		pos;
 
 	temp = va_arg(*ap, char*);
-	str = ft_strdup(temp);
+	if (temp != NULL)
+		str = ft_strdup(temp);
+	else
+		str = ft_strdup("(null)");
 	if (p->prec > 0)
 		str = ft_cut_str(str, p->prec);
 	if (p->width > ft_strlen(str))

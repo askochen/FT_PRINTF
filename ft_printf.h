@@ -35,6 +35,7 @@ typedef struct		s_param
 
 	//	precision -> int or *
 	int				prec;
+	int 			is_prec;
 
 	//	lenght -> none, hh, ll, l, h, z, j
 	enum			{none, hh, h, l, ll, j, z} lenght;
