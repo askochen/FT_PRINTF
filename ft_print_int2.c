@@ -15,9 +15,9 @@
 int			ft_print_id(va_list *ap, t_param *p)
 {
 	if (p->lenght == hh)
-		return (ft_put_int((char)va_arg(*ap, char), p));
+		return (ft_put_int((char)va_arg(*ap, int), p));
 	else if (p->lenght == h)
-		return (ft_put_int((short)va_arg(*ap, short), p));
+		return (ft_put_int((short)va_arg(*ap, int), p));
 	else if (p->lenght == ll)
 		return (ft_put_int((long long)va_arg(*ap, long long), p));
 	else if (p->lenght == l)
@@ -25,7 +25,7 @@ int			ft_print_id(va_list *ap, t_param *p)
 	else if (p->lenght == j)
 		return (ft_put_int((intmax_t)va_arg(*ap, intmax_t), p));
 	else if (p->lenght == z)
-		return (ft_put_int((size_t)va_arg(*ap, size_t), p));
+		return (ft_put_int((int)va_arg(*ap, int), p));
 	else
 		return (ft_put_int((int)va_arg(*ap, int), p));
 }
@@ -35,17 +35,19 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 	uintmax_t	temp;
 
 	if (p->lenght == hh)
-		temp = (uintmax_t)va_arg(*ap, unsigned char);
+		temp = (unsigned int)va_arg(*ap, unsigned int);
 	else if (p->lenght == h)
-		temp = (uintmax_t)va_arg(*ap, unsigned short);
+		temp = (unsigned int)va_arg(*ap, unsigned int);
 	else if (p->lenght == ll)
-		temp = (uintmax_t)va_arg(*ap, unsigned long long);
-	else if (p->lenght == l || p->lenght == j || p->lenght == z)
-		temp = (uintmax_t)va_arg(*ap, unsigned long);
+		temp = (unsigned long long)va_arg(*ap, unsigned long long);
+	else if (p->lenght == j)
+		temp = (uintmax_t)va_arg(*ap, uintmax_t);
+	else if (p->lenght == l || p->lenght == z)
+		temp = (unsigned long)va_arg(*ap, unsigned long);
 	else if (p->type == 'U' || p->type == 'O')
 		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else
-		temp = (uintmax_t)va_arg(*ap, unsigned int);
+		temp = (unsigned int)va_arg(*ap, unsigned int);
 	if (p->type == 'o' || p->type == 'O')
 		return (ft_put_int_o(temp, p));
 	if (p->type == 'u' || p->type == 'U')
@@ -57,8 +59,6 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 
 int			ft_print_ld(va_list *ap, t_param *p)
 {
-	intmax_t	temp;
-
 	if (p->lenght == ll)
 		return (ft_put_int((intmax_t)va_arg(*ap, long long), p));
 	else if (p->lenght == z)
