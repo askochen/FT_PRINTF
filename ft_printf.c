@@ -17,7 +17,7 @@ void		ft_parse_type(t_param *c_p, char *str)
 	c_p->type = str[c_p->count];
 	c_p->count = c_p->count + 1;
 	if (!(ft_is_int(c_p) || ft_is_double(c_p) || ft_is_ptr(c_p) \
-		|| ft_is_char(c_p) || ft_is_string(c_p)))
+		|| ft_is_char(c_p) || ft_is_string(c_p) || ft_is_persent(c_p)))
 			ft_error(c_p);
 }
 

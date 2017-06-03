@@ -80,6 +80,7 @@ void	ft_parse_width(t_param *param, char *str, va_list *ap)
 	param->width = 0;
 	if (*(str + param->count) == '*')
 	{
+		param->is_width = 1;
 		temp = va_arg(*ap, int);
 		if (temp < 0)
 		{
@@ -92,6 +93,7 @@ void	ft_parse_width(t_param *param, char *str, va_list *ap)
 	}
 	if (ft_isdigit(*(str + param->count)))
 	{
+		param->is_width = 1;
 		while (ft_isdigit(*(str + param->count)))
 		{
 			param->width = param->width * 10 + (*(str + param->count) - '0');

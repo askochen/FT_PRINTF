@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-//#include <stdio.h>
+#include <stdio.h>
 
 void	ft_print_param(t_param *param)
 {
@@ -75,7 +75,7 @@ int		ft_print_persent(t_param *param)
 
 	temp = ft_strnew(1);
 	temp[0] = '%';
-	if (param->width > 0 && param->zero == 1)
+	if (param->width > 0 && param->zero == 0)
 	{
 		if (param->left == 1)
 			pos = 1;

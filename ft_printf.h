@@ -32,6 +32,7 @@ typedef struct		s_param
 
 	//	width -> int or *
 	int				width;
+	int 			is_width;
 
 	//	precision -> int or *
 	int				prec;
@@ -129,4 +130,5 @@ char		*ft_dtoa_base(double value, int base);
 
 //   ft_erroc.c
 void		ft_error(t_param* param);
+int			ft_is_flag_exist(t_param* p);
 #endif

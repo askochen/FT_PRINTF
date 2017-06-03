@@ -13,7 +13,11 @@
 #include "ft_printf.h"
 
 void ft_error(t_param* param)
-{
-	param->count = param->count - 1;
+{	param->count = param->count - 1;
 	param->error = 1;
+}
+
+int	ft_is_flag_exist(t_param* p)
+{
+	return (p->left || p->zero || p->space || p->sign || p->altern);
 }

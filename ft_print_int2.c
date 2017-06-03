@@ -35,19 +35,19 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 	uintmax_t	temp;
 
 	if (p->lenght == hh)
-		temp = (unsigned int)va_arg(*ap, unsigned int);
+		temp = (uintmax_t)va_arg(*ap, unsigned int);
 	else if (p->lenght == h)
-		temp = (unsigned int)va_arg(*ap, unsigned int);
+		temp = (uintmax_t)va_arg(*ap, unsigned int);
 	else if (p->lenght == ll)
-		temp = (unsigned long long)va_arg(*ap, unsigned long long);
+		temp = (uintmax_t)va_arg(*ap, unsigned long long);
 	else if (p->lenght == j)
 		temp = (uintmax_t)va_arg(*ap, uintmax_t);
 	else if (p->lenght == l || p->lenght == z)
-		temp = (unsigned long)va_arg(*ap, unsigned long);
+		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else if (p->type == 'U' || p->type == 'O')
 		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else
-		temp = (unsigned int)va_arg(*ap, unsigned int);
+		temp = (uintmax_t)va_arg(*ap, unsigned int);
 	if (p->type == 'o' || p->type == 'O')
 		return (ft_put_int_o(temp, p));
 	if (p->type == 'u' || p->type == 'U')
