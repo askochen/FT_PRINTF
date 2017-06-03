@@ -60,12 +60,12 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 	}
 	if (p->width > ft_strlen(temp))
 	{
-		is_null = 0;
+		//is_null = 0;
 		if (p->left == 1)
 			pos = ft_strlen(temp);
 		else
 			pos = 0;
-		temp1 = ft_new_n_symb(p->width - ft_strlen(temp), ' ');
+		temp1 = ft_new_n_symb(p->width - ft_strlen(temp) - is_null, ' ');
 		temp = ft_insert_with_free(temp, temp1, pos);
 	}
 	ft_putstr(temp);

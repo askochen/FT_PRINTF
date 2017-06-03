@@ -14,23 +14,20 @@
 
 int			ft_print_id(va_list *ap, t_param *p)
 {
-	intmax_t	temp;
-
 	if (p->lenght == hh)
-		temp = (signed char)va_arg(*ap, signed char);
+		return (ft_put_int((char)va_arg(*ap, char), p));
 	else if (p->lenght == h)
-		temp = (short)va_arg(*ap, short);
+		return (ft_put_int((short)va_arg(*ap, short), p));
 	else if (p->lenght == ll)
-		temp = va_arg(*ap, long long);
+		return (ft_put_int((long long)va_arg(*ap, long long), p));
 	else if (p->lenght == l)
-		temp = (long)va_arg(*ap, long);
+		return (ft_put_int((long)va_arg(*ap, long), p));
 	else if (p->lenght == j)
-		temp = (long long)va_arg(*ap, long long);
+		return (ft_put_int((intmax_t)va_arg(*ap, intmax_t), p));
 	else if (p->lenght == z)
-		temp = (size_t)va_arg(*ap, size_t);
+		return (ft_put_int((size_t)va_arg(*ap, size_t), p));
 	else
-		temp = (int)va_arg(*ap, int);
-	return (ft_put_int(temp, p));
+		return (ft_put_int((int)va_arg(*ap, int), p));
 }
 
 int			ft_print_ouxx(va_list *ap, t_param *p)
@@ -38,17 +35,17 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 	uintmax_t	temp;
 
 	if (p->lenght == hh)
-		temp = (unsigned char)va_arg(*ap, unsigned char);
+		temp = (uintmax_t)va_arg(*ap, unsigned char);
 	else if (p->lenght == h)
-		temp = (unsigned short)va_arg(*ap, unsigned short);
+		temp = (uintmax_t)va_arg(*ap, unsigned short);
 	else if (p->lenght == ll)
-		temp = va_arg(*ap, unsigned long long);
+		temp = (uintmax_t)va_arg(*ap, unsigned long long);
 	else if (p->lenght == l || p->lenght == j || p->lenght == z)
-		temp = va_arg(*ap, unsigned long);
+		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else if (p->type == 'U' || p->type == 'O')
-		temp = va_arg(*ap, unsigned long);
+		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else
-		temp = (unsigned int)va_arg(*ap, unsigned int);
+		temp = (uintmax_t)va_arg(*ap, unsigned int);
 	if (p->type == 'o' || p->type == 'O')
 		return (ft_put_int_o(temp, p));
 	if (p->type == 'u' || p->type == 'U')
@@ -60,19 +57,18 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 
 int			ft_print_ld(va_list *ap, t_param *p)
 {
-	long long	temp;
+	intmax_t	temp;
 
 	if (p->lenght == ll)
-		temp = (long long)va_arg(*ap, long long);
+		return (ft_put_int((intmax_t)va_arg(*ap, long long), p));
 	else if (p->lenght == z)
-		temp = (size_t)va_arg(*ap, size_t);
+		return (ft_put_int((intmax_t)va_arg(*ap, size_t), p));
 	else if (p->lenght == j)
-		temp = (long long)va_arg(*ap, long long);
+		return (ft_put_int((intmax_t)va_arg(*ap, long long), p));
 	else if (p->lenght == l)
-		temp = (long)va_arg(*ap, long);
+		return (ft_put_int((intmax_t)va_arg(*ap, long), p));
 	else
-		temp = (long)va_arg(*ap, long);
-	return (ft_put_int(temp, p));
+		return (ft_put_int((intmax_t)va_arg(*ap, long), p));
 }
 
 int			ft_put_int(intmax_t num, t_param *param)
@@ -82,7 +78,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 	char		*temp;
 	char		*str;
 	int			pos;
-
+	
 	minus = 0;
 	if (num < 0)
 	{
@@ -146,7 +142,7 @@ int		ft_put_int_o(uintmax_t temp, t_param *param)
 	int 		bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
-	if (param->is_prec && temp == 0 && param->prec == 0)
+	if (param->is_prec && temp == 0 && param->prec == 0 && param->altern == 0)
 	{
 		free(str);
 		str = ft_strdup("");
@@ -175,7 +171,7 @@ int		ft_put_int_x(uintmax_t temp, t_param *param)
 
 	str = ft_itoa_base(temp, ft_get_base(param));
 	bool = param->altern == 1 && temp != 0;
-	if (param->is_prec && temp == 0 && param->prec == 0)
+	if (param->is_prec == 1 && temp == 0 && param->prec == 0)
 	{
 		free(str);
 		str = ft_strdup("");

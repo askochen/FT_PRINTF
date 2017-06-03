@@ -15,8 +15,8 @@
 
 static	int		ft_count(int n)
 {
-	if (n == -2147483648)
-		return (11);
+	//if (n == -2147483648)
+	//	return (11);
 	if (n < 0)
 		return (ft_count(-n) + 1);
 	if (n == 0)
