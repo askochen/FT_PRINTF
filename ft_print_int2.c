@@ -25,7 +25,7 @@ int			ft_print_id(va_list *ap, t_param *p)
 	else if (p->lenght == j)
 		return (ft_put_int((intmax_t)va_arg(*ap, intmax_t), p));
 	else if (p->lenght == z)
-		return (ft_put_int((int)va_arg(*ap, int), p));
+		return (ft_put_int((long int)va_arg(*ap, long int), p));
 	else
 		return (ft_put_int((int)va_arg(*ap, int), p));
 }
