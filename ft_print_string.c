@@ -51,7 +51,7 @@ int			ft_print_low_str(va_list *ap, t_param *p)
 			pos = ft_strlen(str);
 		else
 			pos = 0;
-		temp1 = ft_new_n_symb(p->width - ft_strlen(str), ' ');
+		temp1 = ft_new_n_symb(p->width - ft_strlen(str), ft_c(p));
 		str = ft_insert_with_free(str, temp1, pos);
 	}
 	len = ft_strlen(str);

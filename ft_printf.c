@@ -15,10 +15,8 @@
 void		ft_parse_type(t_param *c_p, char *str)
 {
 	c_p->type = str[c_p->count];
-	c_p->count = c_p->count + 1;
-	if (!(ft_is_int(c_p) || ft_is_double(c_p) || ft_is_ptr(c_p) \
-		|| ft_is_char(c_p) || ft_is_string(c_p) || ft_is_persent(c_p)))
-			ft_error(c_p);
+	if (c_p->type != '\0')
+		c_p->count = c_p->count + 1;
 }
 
 t_param		*ft_new_params(va_list *ap, char *str)
@@ -29,8 +27,13 @@ t_param		*ft_new_params(va_list *ap, char *str)
 	ft_bzero((void*)c_param, sizeof(t_param));
 	ft_parse_flags(c_param, str);
 	ft_parse_width(c_param, str, ap);
-	ft_parse_precis(c_param, str, ap);
-	ft_parse_lenght(c_param, str);
+	ft_parse_flags(c_param, str);
+	while (*(str + c_param->count) == '.')
+		ft_parse_precis(c_param, str, ap);
+	ft_parse_flags(c_param, str);
+	while (ft_is_len(*(str + c_param->count)))
+		ft_parse_lenght(c_param, str);
+	ft_parse_flags(c_param, str);
 	ft_parse_type(c_param, str);
 	return (c_param);
 }
@@ -42,7 +45,7 @@ int			ft_parse_with_flags(va_list *ap, char *str, int *size)
 
 	param = ft_new_params(ap, str);
 	*size = param->count + 1;
-	len = ft_print_with_params(ap, param);
+	len = ft_print_with_params(ap, param, str);
 	free(param);
 	return (len);
 }

@@ -64,7 +64,7 @@ int			ft_is_flag(char c);
 void		ft_parse_flags(t_param *param, char *str);
 
 //	ft_print_with_params.c
-int			ft_print_with_params(va_list *ap, t_param *param);
+int			ft_print_with_params(va_list *ap, t_param *param, char* str);
 int			ft_is_persent(t_param *param);
 int			ft_print_persent(t_param *param);
 
@@ -89,6 +89,7 @@ int			ft_prit_char(va_list *ap, t_param *param);
 int			ft_print_simple_ch(va_list *ap);
 int			ft_print_low_char(va_list *ap, t_param *p);
 int			ft_print_hight_char(va_list *ap, t_param *param);
+char 		ft_c(t_param* param);
 
 //	ft_w_char_tools.c
 int			use_mask_0(unsigned int w_c, unsigned int mask);
@@ -129,6 +130,9 @@ char		*ft_itoa_base(uintmax_t n, long long int base);
 char		*ft_dtoa_base(double value, int base);
 
 //   ft_erroc.c
-void		ft_error(t_param* param);
+int			ft_error(t_param* param, char* str);
 int			ft_is_flag_exist(t_param* p);
+int 		ft_is_type(char ch);
+int 		ft_is_len(char ch);
+int			ft_fill_symbols(t_param* param);
 #endif

@@ -16,11 +16,10 @@
 void	ft_print_param(t_param *param)
 {
 
-	//printf("This is params)))\n");
-	//printf("flags: left->%c, zero->%c, space->%c, sign->%c, altern->%c\n",param->left, param->zero,param->space, param->sign, param->altern);
-
-	//printf("width: %i\n", param->width);
-	//printf("precesion: %i\n", param->prec);
+	printf("This is params)))\n");
+	printf("flags: left->%c, zero->%c, space->%c, sign->%c, altern->%c\n",param->left, param->zero,param->space, param->sign, param->altern);
+	printf("width: %i\n", param->width);
+	printf("precesion: %i\n", param->prec);
 
 		//lenght -> hh, ll, l, h, z, j
 	if (param->lenght == none)
@@ -40,7 +39,7 @@ void	ft_print_param(t_param *param)
 	printf("type: %c\n", param->type);
 }
 
-int		ft_print_with_params(va_list *ap, t_param *param)
+int		ft_print_with_params(va_list *ap, t_param *param, char* str)
 {
 	//ft_print_param(param);
 
@@ -56,7 +55,7 @@ int		ft_print_with_params(va_list *ap, t_param *param)
 		return (ft_print_int(ap, param));
 	if (ft_is_double(param))
 		return (ft_print_double(ap, param));
-	return (0);
+	return (ft_error(param ,str));
 }
 
 int		ft_is_persent(t_param *param)

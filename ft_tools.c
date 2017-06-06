@@ -80,7 +80,7 @@ char	ft_set_symb(t_param *param)
 {
 	char	symb;
 
-	if (param->zero == 1 && param->prec == 0 && param->left == 0)
+	if (param->zero == 1 && param->is_prec == 0 && param->left == 0)
 		symb = '0';
 	else
 		symb = ' ';

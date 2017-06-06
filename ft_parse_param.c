@@ -127,3 +127,4 @@ void	ft_parse_flags(t_param *param, char *str)
 		param->count = param->count + 1;
 	}
 }
+

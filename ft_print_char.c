@@ -20,6 +20,14 @@ int		ft_is_char(t_param *param)
 		return (0);
 }
 
+char 	ft_c(t_param* param)
+{
+	if (param->zero == 1 && param->left == 0)
+		return ('0');
+	else
+		return(' ');
+}
+
 int		ft_prit_char(va_list *ap, t_param *p)
 {
 	if (p->type == 'c' && p->lenght != l)
@@ -65,7 +73,7 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 			pos = ft_strlen(temp);
 		else
 			pos = 0;
-		temp1 = ft_new_n_symb(p->width - ft_strlen(temp) - is_null, ' ');
+		temp1 = ft_new_n_symb(p->width - ft_strlen(temp) - is_null, ft_c(p));
 		temp = ft_insert_with_free(temp, temp1, pos);
 	}
 	ft_putstr(temp);
