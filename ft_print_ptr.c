@@ -26,20 +26,16 @@ int		ft_print_ptr(va_list *ap, t_param *param)
 	char	*str;
 	char 	*temp;
 	int		len;
-	int 	pos;
 
 	ptr = va_arg(*ap, int*);
 	str = ft_itoa_base((intmax_t)ptr, 16);
-	str = ft_strjoin("0x", str);
-	if (param->width > ft_strlen(str))
+	if (param->prec > ft_strlen(str))
 	{
-		if (param->left == 1)
-			pos = ft_strlen(str);
-		else
-			pos = 0;
-		temp = ft_new_n_symb(param->width - ft_strlen(str), ' ');
-		str = ft_insert_with_free(str, temp, pos);
+		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		str = ft_insert_with_free(str, temp, 0);
 	}
+	str = ft_strjoin("0x", str);
+	str = ft_modify_width_id(str, 2, param);
 	len = ft_strlen(str);
 	ft_putstr(str);
 	free(str);

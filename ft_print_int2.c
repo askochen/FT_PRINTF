@@ -122,6 +122,11 @@ int		ft_put_int_u(uintmax_t temp, t_param *param)
 	char		*temp1;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
+	if (temp == 0 && param->is_prec && param->prec == 0)
+	{
+		free(str);
+		str = ft_strdup("");
+	}
 	if (param->prec > ft_strlen(str))
 	{
 		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
