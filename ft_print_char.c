@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/18 14:07:35 by askochen          #+#    #+#             */
-/*   Updated: 2017/05/18 14:07:37 by askochen         ###   ########.fr       */
+/*   Created: 2017/06/08 17:37:18 by askochen          #+#    #+#             */
+/*   Updated: 2017/06/08 17:37:23 by askochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ int		ft_is_char(t_param *param)
 		return (0);
 }
 
-char 	ft_c(t_param* param)
+char	ft_c(t_param *param)
 {
 	if (param->zero == 1 && param->left == 0)
 		return ('0');
 	else
-		return(' ');
+		return (' ');
 }
 
 int		ft_prit_char(va_list *ap, t_param *p)
@@ -55,7 +55,7 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 	char		*temp1;
 	int			len;
 	int			pos;
-	int 		is_null;
+	int			is_null;
 
 	is_null = 0;
 	temp = ft_strnew(1);
@@ -78,7 +78,7 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 	}
 	ft_putstr(temp);
 	len = ft_strlen(temp);
-	if (is_null == 1) 
+	if (is_null == 1)
 		++len;
 	free(temp);
 	return (len);

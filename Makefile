@@ -6,13 +6,13 @@
 #    By: askochen <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/05/18 13:10:46 by askochen          #+#    #+#              #
-#    Updated: 2017/05/18 13:11:25 by askochen         ###   ########.fr        #
+#    Updated: 2017/06/08 18:04:42 by askochen         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = libftprintf.a
 
-FLAGS = -Wall 
+FLAGS = -Wall -Wextra -Werror
 
 SRC = 	ft_itoa_base.c ft_parse_param.c \
 		ft_tools.c ft_print_char.c ft_print_double.c \
