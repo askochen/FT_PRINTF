@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_error.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/06/08 17:36:50 by askochen          #+#    #+#             */
-/*   Updated: 2017/06/08 17:36:56 by askochen         ###   ########.fr       */
+/*   Created: 2017/05/18 14:11:18 by askochen          #+#    #+#             */
+/*   Updated: 2017/05/18 14:11:39 by askochen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_error(t_param *param, char *str)
-{
+int ft_error(t_param* param, char* str)
+{	
 	int		count;
 
 	count = 0;
@@ -22,7 +22,7 @@ int		ft_error(t_param *param, char *str)
 	while (*str)
 	{
 		if (!ft_is_type(*str) && !ft_is_len(*str) && *str != '.' \
-			&& !ft_isdigit(*str) && !ft_is_flag(*str))
+			&&  !ft_isdigit(*str) && !ft_is_flag(*str))
 		{
 			ft_putchar(*str);
 			++count;
@@ -55,12 +55,12 @@ int		ft_error(t_param *param, char *str)
 	return (len);*/
 }
 
-int		ft_is_flag_exist(t_param *p)
+int	ft_is_flag_exist(t_param* p)
 {
 	return (p->left || p->zero || p->space || p->sign || p->altern);
 }
 
-int		ft_is_type(char ch)
+int ft_is_type(char ch)
 {
 	//	type -> d, i, o, u, x, X, f, F, e, E, g, G, a, A, s, S, p, n, %
 	if (ch == 'a' || ch == 'A' || ch == 'o' || ch == 'O')
@@ -75,19 +75,19 @@ int		ft_is_type(char ch)
 		return (1);
 	if (ch == 'i' || ch == 'p' || ch == 'n' || ch == '%')
 		return (1);
-	return (0);
+	return (0);	
 }
 
-int		ft_is_len(char ch)
+int ft_is_len(char ch)
 {
-	return (ch == 'l' || ch == 'h' || ch == 'j' || ch == 'z');
+	return (ch == 'l' || ch == 'h' || ch== 'j' || ch== 'z');
 }
 
-int		ft_fill_symbols(t_param *param)
+int	ft_fill_symbols(t_param* param)
 {
 	char	*str;
-	int		i;
-	int		len;
+	int 	i;
+	int 	len;
 
 	i = 0;
 	if ((param->width) <= 0)
@@ -97,11 +97,11 @@ int		ft_fill_symbols(t_param *param)
 	str = ft_strnew(len);
 	while (i < (len))
 	{
-		if (param->zero == 1 && param->left == 0)
+		if (param->zero == 1 && param->left == 0) 
 			str[i] = '0';
 		else
 			str[i] = ' ';
-		++i;
+		++i;	
 	}
 	write(1, str, len);
 	free(str);
