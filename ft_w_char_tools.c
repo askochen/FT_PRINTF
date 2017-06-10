@@ -18,7 +18,7 @@ int 	ft_print_w_char_0(unsigned int val)
 
 	temp = val;
 	write(1, &temp, 1);
-	retirn (1);
+	return (1);
 }
 
 int 	ft_print_w_char_127(unsigned int val)

@@ -78,7 +78,7 @@ char		*ft_modify_width_id(char *str, int minus, t_param *param);
 char		ft_set_symb(t_param *param);
 char* 		ft_modify_prec_id(char* str, t_param* param);
 char 		*ft_modify_sing(char* str, t_param* param, int minus);
-char		*ft_get_string(uintmax_t num, t_param* param, int* minus);
+char		*ft_get_string(intmax_t num, t_param* param, int* minus);
 
 // ft_print_string.c
 int			ft_is_string(t_param *param);

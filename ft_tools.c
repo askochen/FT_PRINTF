@@ -82,20 +82,18 @@ char 		*ft_modify_sing(char* str, t_param* param, int minus)
 		return (ft_strjoin("-", str));
 	else if (param->sign == 1)
 		return (ft_strjoin("+", str));
+	return str;
 }
 
-char		*ft_get_string(uintmax_t num, t_param* param, int* minus)
+char		*ft_get_string(intmax_t num, t_param* param, int* minus)
 {
 	*minus = 0;
+	if (num < 0)
+	{
+		num = num * -1;
+		*minus = 1;
+	}
+	return (ft_itoa_base(num, 10));
 	if (param->is_prec && num == 0 && param->prec == 0)
 		return (ft_strdup(""));
-	else 
-	{
-		if (num < 0)
-		{
-			num = num * -1;
-			*minus = 1;
-		}
-		return (ft_itoa_base(num, 10));
-	}
 }
