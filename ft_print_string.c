@@ -84,7 +84,7 @@ int			ft_print_hight_str(va_list *ap, t_param *param)
 	while (s[i])
 	{
 		n += w_char_len(s[i]);
-		use_mask(s[i]);
+		ft_print_w_char(s[i]);
 		++i;
 	}
 	return (n);
