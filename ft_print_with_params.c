@@ -15,7 +15,6 @@
 
 void	ft_print_param(t_param *param)
 {
-
 	printf("This is params)))\n");
 	printf("flags: left->%c, zero->%c, space->%c, sign->%c, altern->%c\n",param->left, param->zero,param->space, param->sign, param->altern);
 	printf("width: %i\n", param->width);
@@ -39,10 +38,9 @@ void	ft_print_param(t_param *param)
 	printf("type: %c\n", param->type);
 }
 
-int		ft_print_with_params(va_list *ap, t_param *param, char* str)
+int		ft_print_with_params(va_list *ap, t_param *param, char *str)
 {
 	//ft_print_param(param);
-
 	if (ft_is_persent(param))
 		return (ft_print_persent(param));
 	if (ft_is_string(param))
@@ -55,7 +53,7 @@ int		ft_print_with_params(va_list *ap, t_param *param, char* str)
 		return (ft_print_int(ap, param));
 	if (ft_is_double(param))
 		return (ft_print_double(ap, param));
-	return (ft_error(param ,str));
+	return (ft_error(param, str));
 }
 
 int		ft_is_persent(t_param *param)
@@ -68,9 +66,9 @@ int		ft_is_persent(t_param *param)
 
 int		ft_print_persent(t_param *param)
 {
-	char 	*temp;
-	int 	len;
-	int 	pos;
+	char	*temp;
+	int		len;
+	int		pos;
 
 	temp = ft_strnew(1);
 	temp[0] = '%';

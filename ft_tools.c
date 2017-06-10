@@ -76,26 +76,29 @@ char	*ft_cut_str(char *str, int size)
 	return (temp);
 }
 
-char 		*ft_modify_sing(char* str, t_param* param, int minus)
+char	ft_set_symb(t_param *param)
 {
-	if (minus)
-		return (ft_strjoin("-", str));
-	else if (param->sign == 1)
-		return (ft_strjoin("+", str));
+	char	symb;
+
+	if (param->zero == 1 && param->is_prec == 0 && param->left == 0)
+		symb = '0';
+	else
+		symb = ' ';
+	return (symb);
 }
 
-char		*ft_get_string(uintmax_t num, t_param* param, int* minus)
+char	*ft_modify_width_id(char *str, int pos, t_param *param)
 {
-	*minus = 0;
-	if (param->is_prec && num == 0 && param->prec == 0)
-		return (ft_strdup(""));
-	else 
+	char	*temp;
+
+	if (param->width > ft_strlen(str))
 	{
-		if (num < 0)
-		{
-			num = num * -1;
-			*minus = 1;
-		}
-		return (ft_itoa_base(num, 10));
+		if (ft_set_symb(param) == ' ')
+			pos = 0;
+		if (param->left == 1)
+			pos = ft_strlen(str);
+		temp = ft_new_n_symb(param->width - ft_strlen(str), ft_set_symb(param));
+		str = ft_insert_with_free(str, temp, pos);
 	}
+	return (str);
 }

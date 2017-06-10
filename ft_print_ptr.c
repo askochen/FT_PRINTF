@@ -22,9 +22,9 @@ int		ft_is_ptr(t_param *param)
 
 int		ft_print_ptr(va_list *ap, t_param *param)
 {
-	int 	*ptr;
+	int		*ptr;
 	char	*str;
-	char 	*temp;
+	char	*temp;
 	int		len;
 
 	ptr = va_arg(*ap, int*);
