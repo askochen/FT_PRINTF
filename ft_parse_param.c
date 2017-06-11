@@ -14,34 +14,17 @@
 
 void	ft_parse_lenght(t_param *param, char *str)
 {
-	if ((*(str + param->count) == 'h') && (*(str + param->count + 1) == 'h'))
-	{
-		param->lenght = hh;
-		param->count = param->count + 2;
+	if (ft_is_len_hh(param, str))
 		return ;
-	}
-	if ((*(str + param->count) == 'l') && (*(str + param->count + 1) == 'l'))
-	{
-		param->lenght = ll;
-		param->count = param->count + 2;
+	if (ft_is_len_ll(param, str))
 		return ;
-	}
-	if (*(str + param->count) == 'l')
-	{
-		param->lenght = l;
-		param->count = param->count + 1;
-	}
-	if (*(str + param->count) == 'h')
-	{
-		param->lenght = h;
-		param->count = param->count + 1;
-	}
-	if (*(str + param->count) == 'j')
-	{
-		param->lenght = j;
-		param->count = param->count + 1;
-	}
-	if (*(str + param->count) == 'z')
+	if (ft_is_len_h(param, str))
+		return ;
+	if (ft_is_len_hh(param, str))
+		return ;
+	if (ft_is_len_j(param, str))
+		return ;
+	if (*(str + param->count) == 'z' && param->lenght < z)
 	{
 		param->lenght = z;
 		param->count = param->count + 1;
