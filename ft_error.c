@@ -14,7 +14,7 @@
 
 int ft_error(t_param* param, char* str)
 {	
-	int		count;
+/*	int		count;
 
 	count = 0;
 	if (param->left == 0)
@@ -38,21 +38,11 @@ int ft_error(t_param* param, char* str)
 		}
 		++str;
 	}
-	return (count);
-	/*int		len;
+	return (count);*/
 
-	len = 0;
-	if (param->left == 1)
-		ft_putchar(*str);
-	if (param->width > 0)
-	{
-		ft_fill_symbols(param);
-		len += param->width - 1;
-	}
-	if (param->left == 0)
-		ft_putchar(*str);
-	len++;
-	return (len);*/
+	(void*)param;
+	(void*)str;
+	return (0);
 }
 
 int	ft_is_flag_exist(t_param* p)
