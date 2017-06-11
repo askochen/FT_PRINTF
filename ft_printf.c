@@ -44,7 +44,7 @@ int			ft_parse_with_flags(va_list *ap, char *str, int *size)
 	t_param		*param;
 
 	param = ft_new_params(ap, str);
-	len = ft_print_with_params(ap, param, str);
+	len = ft_print_with_params(ap, param);
 	*size = param->count + 1;
 	free(param);
 	return (len);

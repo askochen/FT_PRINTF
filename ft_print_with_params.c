@@ -32,7 +32,7 @@ void	ft_print_param(t_param *param)
 	printf("type: %c\n", param->type);
 }
 
-int		ft_print_with_params(va_list *ap, t_param *param, char* str)
+int		ft_print_with_params(va_list *ap, t_param *param)
 {
 	if (ft_is_persent(param))
 		return (ft_print_persent(param));
@@ -46,7 +46,7 @@ int		ft_print_with_params(va_list *ap, t_param *param, char* str)
 		return (ft_print_int(ap, param));
 	if (ft_is_double(param))
 		return (ft_print_double(ap, param));
-	return (ft_error(param ,str));
+	return (ft_error(param));
 }
 
 int		ft_is_persent(t_param *param)

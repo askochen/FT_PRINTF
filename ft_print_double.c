@@ -38,6 +38,7 @@ int		ft_print_double(va_list *ap, t_param *param)
 	double	temp;
 	char	*str;
 
+	param->width = 0;
 	temp = (double)va_arg(*ap, double);
 	str = ft_dtoa_base(temp, 10);
 	ft_putstr(str);

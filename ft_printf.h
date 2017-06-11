@@ -71,7 +71,7 @@ void 		ft_set_l(t_param *param);
 void 		ft_set_j(t_param *param);
 
 //	ft_print_with_params.c
-int			ft_print_with_params(va_list *ap, t_param *param, char* str);
+int			ft_print_with_params(va_list *ap, t_param *param);
 int			ft_is_persent(t_param *param);
 int			ft_print_persent(t_param *param);
 
@@ -141,7 +141,7 @@ char		*ft_itoa_base(uintmax_t n, long long int base);
 char		*ft_dtoa_base(double value, int base);
 
 //   ft_erroc.c
-int			ft_error(t_param* param, char* str);
+int			ft_error(t_param* param);
 int			ft_is_flag_exist(t_param* p);
 int 		ft_is_type(char ch);
 int 		ft_is_len(char ch);

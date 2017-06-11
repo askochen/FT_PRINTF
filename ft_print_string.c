@@ -80,6 +80,7 @@ int			ft_print_hight_str(va_list *ap, t_param *param)
 
 	i = 0;
 	n = 0;
+	param->width = 0;
 	s = (wchar_t *)va_arg(*ap, wchar_t *);
 	while (s[i])
 	{
