@@ -71,7 +71,11 @@ int		ft_print_persent(t_param *param)
 	char 	*temp;
 	int 	len;
 	int 	pos;
+	char 	symb;
 
+	symb = ' ';
+	if (param->left == 0 && param->zero == 1)
+		symb = '0';
 	temp = ft_strnew(1);
 	temp[0] = '%';
 	if (param->width > 0 && param->zero == 0)
@@ -80,7 +84,7 @@ int		ft_print_persent(t_param *param)
 			pos = 1;
 		else
 			pos = 0;
-		temp = ft_insert_with_free(temp, ft_new_n_symb(param->width - 1, ' '), pos);
+		temp = ft_insert_with_free(temp, ft_new_n_symb(param->width - 1, symb), pos);
 	}
 	ft_putstr(temp);
 	len = ft_strlen(temp);
