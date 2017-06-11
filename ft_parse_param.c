@@ -24,9 +24,10 @@ void	ft_parse_lenght(t_param *param, char *str)
 		return ;
 	if (ft_is_len_j(param, str))
 		return ;
-	if (*(str + param->count) == 'z' && param->lenght < 7)
+	if (*(str + param->count) == 'z')
 	{
-		param->lenght = z;
+		if (param->lenght < 7)
+			param->lenght = z;
 		param->count = param->count + 1;
 	}
 }
