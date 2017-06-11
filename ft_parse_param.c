@@ -26,7 +26,7 @@ void	ft_parse_lenght(t_param *param, char *str)
 		return ;
 	if (*(str + param->count) == 'z')
 	{
-		if (param->lenght < 7)
+		//if (param->lenght < 7)
 			param->lenght = z;
 		param->count = param->count + 1;
 	}
