@@ -14,23 +14,25 @@
 
 void	ft_parse_lenght(t_param *param, char *str)
 {
-	/*if (ft_is_len_hh(param, str))
+	if (ft_is_len_hh(param, str) == 1)
 		return ;
-	if (ft_is_len_ll(param, str))
+	if (ft_is_len_ll(param, str) == 1)
 		return ;
-	if (ft_is_len_h(param, str))
+	if (ft_is_len_h(param, str) == 1)
 		return ;
-	if (ft_is_len_hh(param, str))
+	if (ft_is_len_hh(param, str) == 1)
 		return ;
-	if (ft_is_len_j(param, str))
+	if (ft_is_len_j(param, str) == 1)
 		return ;
 	if (*(str + param->count) == 'z')
 	{
 		//if (param->lenght < 7)
 			param->lenght = z;
 		param->count = param->count + 1;
-	}*/
-	if ((*(str + param->count) == 'h') && (*(str + param->count + 1) == 'h'))
+	}
+
+
+/*	if ((*(str + param->count) == 'h') && (*(str + param->count + 1) == 'h'))
 	{
 		param->lenght = hh;
 		param->count = param->count + 2;
@@ -61,7 +63,7 @@ void	ft_parse_lenght(t_param *param, char *str)
  	{
  		param->lenght = z;
  		param->count = param->count + 1;
- 	}
+ 	}*/
 
 }
 
