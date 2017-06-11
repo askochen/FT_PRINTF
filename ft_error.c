@@ -39,8 +39,8 @@ int ft_error(t_param* param, char* str)
 		++str;
 	}
 	return (count);*/
-
-	param->count = param->count - 1;
+	if (param->type)
+		param->count = param->count - 1;
 	(void*)str;
 	return (0);
 }
