@@ -105,7 +105,7 @@ char 		ft_c(t_param* param);
 int			ft_print_w_char_0(unsigned int val);
 int			ft_print_w_char_127(unsigned int val);
 int			ft_print_w_char_2047(unsigned int val);
-int			ft_print_w_char_biggest(unsigned int val);
+int			ft_print_w_char_biggest(unsigned int val, unsigned int cons);
 int			ft_print_w_char(wchar_t w_c);
 
 //	ft_print_ptr.c

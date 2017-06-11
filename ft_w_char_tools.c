@@ -26,12 +26,14 @@ int 	ft_print_w_char_127(unsigned int val)
 	unsigned char temp;
 	unsigned char t1;
 	unsigned char t2;
+	unsigned int cons;
 
+	cons = 49280;
 	t2 = (val << 26) >> 26;
 	t1 = ((val >> 6) << 27) >> 27;
-	temp = (49280 >> 8) | t1;
+	temp = (cons >> 8) | t1;
 	write(1, &temp, 1);
-	temp = ((49280 << 24) >> 24) | t2;
+	temp = ((cons << 24) >> 24) | t2;
 	write(1, &temp, 1);
 	return (2);
 }
@@ -42,20 +44,22 @@ int		ft_print_w_char_2047(unsigned int val)
 	unsigned char	t1;
 	unsigned char	t2;
 	unsigned char	t3;
+	unsigned int cons;
 
+	cons = 14712960;
 	t3 = (val << 26) >> 26;
 	t2 = ((val >> 6) << 26) >> 26;
 	t1 = ((val >> 12) << 28) >> 28;
-	temp = (14712960 >> 16) | t1;
+	temp = (cons >> 16) | t1;
 	write(1, &temp, 1);
-	temp = ((14712960 << 16) >> 24) | t2;
+	temp = ((cons << 16) >> 24) | t2;
 	write(1, &temp, 1);
-	temp = ((14712960 << 24) >> 24) | t3;
+	temp = ((cons << 24) >> 24) | t3;
 	write(1, &temp, 1);
 	return (3);
 }
 
-int		ft_print_w_char_biggest(unsigned int val)
+int		ft_print_w_char_biggest(unsigned int val, unsigned int cons)
 {
 	unsigned char	temp;
 	unsigned char	t1;
@@ -67,13 +71,13 @@ int		ft_print_w_char_biggest(unsigned int val)
 	t3 = ((val >> 6) << 26) >> 26;
 	t2 = ((val >> 12) << 26) >> 26;
 	t1 = ((val >> 18) << 29) >> 29;
-	temp = (4034953344 >> 24) | t1;
+	temp = (cons >> 24) | t1;
 	write(1, &temp, 1);
-	temp = ((4034953344 << 8) >> 24) | t2;
+	temp = ((cons << 8) >> 24) | t2;
 	write(1, &temp, 1);
-	temp = ((4034953344 << 16) >> 24) | t3;
+	temp = ((cons << 16) >> 24) | t3;
 	write(1, &temp, 1);
-	temp = ((4034953344 << 24) >> 24) | t4;
+	temp = ((cons << 24) >> 24) | t4;
 	write(1, &temp, 1);
 	return (4);
 }
@@ -81,7 +85,9 @@ int		ft_print_w_char_biggest(unsigned int val)
 int		ft_print_w_char(wchar_t val)
 {
 	unsigned int	temp;
+	unsigned int cons;
 
+	cons = 4034953344;
 	temp = val;
 	if (val <= 127)
 		return (ft_print_w_char_0(temp));
@@ -90,5 +96,5 @@ int		ft_print_w_char(wchar_t val)
 	else if (val <= 65535)
 		return (ft_print_w_char_2047(temp));
 	else
-		return (ft_print_w_char_biggest(temp));
+		return (ft_print_w_char_biggest(temp, cons));
 }
