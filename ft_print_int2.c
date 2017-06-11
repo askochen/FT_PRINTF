@@ -36,6 +36,8 @@ int			ft_print_ouxx(va_list *ap, t_param *p)
 
 	if (p->lenght == hh)
 		temp = (uintmax_t)va_arg(*ap, unsigned int);
+	else if (p->lenght == h && (p->type == 'u' || p->type == 'U'))
+		temp = (uintmax_t)va_arg(*ap, unsigned long);
 	else if (p->lenght == h)
 		temp = (uintmax_t)va_arg(*ap, unsigned int);
 	else if (p->lenght == ll)
