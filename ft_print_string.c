@@ -77,12 +77,10 @@ int			ft_print_hight_str(va_list *ap, t_param *param)
 	wchar_t		*s;
 	int			n;
 	int			i;
-	wchar_t 	*temp;
 
 	i = 0;
 	n = 0;
-	temp = (wchar_t *)va_arg(*ap, wchar_t *);
-	s = ft_strdup(temp);
+	s = (wchar_t *)va_arg(*ap, wchar_t *);
 	while (s[i])
 	{
 		n += w_char_len(s[i]);
