@@ -43,7 +43,7 @@ int			ft_print_low_str(va_list *ap, t_param *p)
 		str = ft_strdup(temp);
 	else
 		str = ft_strdup("(null)");
-	if (p->prec > 0)
+	if (p->prec > 0 && p->is_prec == 1)
 		str = ft_cut_str(str, p->prec);
 	if (p->width > ft_strlen(str))
 	{
@@ -77,15 +77,22 @@ int			ft_print_hight_str(va_list *ap, t_param *param)
 	wchar_t		*s;
 	int			n;
 	int			i;
+	wchar_t 	*temp;
 
 	i = 0;
 	n = 0;
-	s = (wchar_t *)va_arg(*ap, wchar_t *);
-	while (s[i])
+	temp = (wchar_t *)va_arg(*ap, wchar_t *);
+	if (temp != NULL)
 	{
-		n += w_char_len(s[i]);
-		ft_print_w_char(s[i]);
-		++i;
+		s = ft_strdup(temp);
+		while (s[i])
+		{
+			n += w_char_len(s[i]);
+			ft_print_w_char(s[i]);
+			++i;
+		}
+		return (n);
 	}
-	return (n);
+	ft_putstr("(null)");
+	return (6);
 }
