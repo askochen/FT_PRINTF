@@ -40,7 +40,7 @@ int ft_error(t_param* param, char* str)
 	}
 	return (count);*/
 
-	(void*)param;
+	param->count = param->count - 1;
 	(void*)str;
 	return (0);
 }
