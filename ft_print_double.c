@@ -41,5 +41,5 @@ int		ft_print_double(va_list *ap, t_param *param)
 	temp = (double)va_arg(*ap, double);
 	str = ft_dtoa_base(temp, 10);
 	ft_putstr(str);
-	return (ft_strlen(str));
+	return ((int)ft_strlen(str));
 }

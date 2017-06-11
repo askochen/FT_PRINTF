@@ -37,13 +37,13 @@ char	*ft_insert_with_free(char *str1, char *str2, int pos)
 
 	del1 = str1;
 	del2 = str2;
-	len = ft_strlen(str1) + ft_strlen(str2);
+	len = (int)ft_strlen(str1) + (int)ft_strlen(str2);
 	temp = ft_strnew(len);
 	i = 0;
 	if (pos < 0)
 		pos = 0;
-	if (pos > ft_strlen(str1))
-		pos = ft_strlen(str1);
+	if (pos > (int)ft_strlen(str1))
+		pos = (int)ft_strlen(str1);
 	while (i < len)
 		if (i == pos)
 			while (*str2 != '\0')
@@ -63,8 +63,8 @@ char	*ft_cut_str(char *str, int size)
 	i = 0;
 	if (size < 0)
 		size = 0;
-	if (size > ft_strlen(str))
-		size = ft_strlen(str);
+	if (size > (int)ft_strlen(str))
+		size = (int)ft_strlen(str);
 	temp = ft_strnew(size);
 	while (i < size)
 	{

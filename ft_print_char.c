@@ -55,18 +55,18 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 		temp = ft_strdup("");
 		is_null = 1;
 	}
-	if (p->width > ft_strlen(temp))
+	if (p->width > (int)ft_strlen(temp))
 	{
 		//is_null = 0;
 		if (p->left == 1)
-			pos = ft_strlen(temp);
+			pos = (int)ft_strlen(temp);
 		else
 			pos = 0;
-		temp1 = ft_new_n_symb(p->width - ft_strlen(temp) - is_null, ft_c(p));
+		temp1 = ft_new_n_symb(p->width - (int)ft_strlen(temp) - is_null, ft_c(p));
 		temp = ft_insert_with_free(temp, temp1, pos);
 	}
 	ft_putstr(temp);
-	len = ft_strlen(temp);
+	len = (int)ft_strlen(temp);
 	if (is_null == 1) 
 		++len;
 	free(temp);

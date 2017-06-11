@@ -85,6 +85,6 @@ int		ft_print_persent(t_param *param)
 			temp = ft_insert_with_free(temp, ft_new_n_symb(param->width - 1, symb), 0);
 	}
 	ft_putstr(temp);
-	len = ft_strlen(temp);
+	len = (int)ft_strlen(temp);
 	return (len);
 }

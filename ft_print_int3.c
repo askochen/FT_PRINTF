@@ -11,9 +11,9 @@ int			ft_put_int(intmax_t num, t_param *param)
 	
 	str = ft_get_string(num, param, &minus);
 	pos = 0;
-	if (param->prec > ft_strlen(str))
+	if (param->prec > (int)ft_strlen(str))
 	{
-		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		temp = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, pos);
 	}
 	str = ft_modify_sing(str, param, minus);
@@ -23,7 +23,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 		pos = 1;
 	str = ft_modify_width_id(str, pos, param);
 	ft_putstr(str);
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	free(str);
 	return (len);
 }
@@ -40,14 +40,14 @@ int		ft_put_int_u(uintmax_t temp, t_param *param)
 		free(str);
 		str = ft_strdup("");
 	}
-	if (param->prec > ft_strlen(str))
+	if (param->prec > (int)ft_strlen(str))
 	{
-		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		temp1 = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp1, 0);
 	}
 	str = ft_modify_width_id(str, 0, param);
 	ft_putstr(str);
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	free(str);
 	return (len);
 }
@@ -68,14 +68,14 @@ int		ft_put_int_o(uintmax_t temp, t_param *param)
 	bool = param->altern == 1 && temp != 0;
 	if (bool)
 		str = ft_strjoin("0", str);
-	if (param->prec > ft_strlen(str))
+	if (param->prec > (int)ft_strlen(str))
 	{
-		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		temp1 = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp1, bool);
 	}
 	str = ft_modify_width_id(str, bool, param);
 	ft_putstr(str);
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	free(str);
 	return (len);
 }
@@ -97,14 +97,14 @@ int		ft_put_int_x(uintmax_t temp, t_param *param)
 	if (bool)
 		str = ft_strjoin("0x", str);
 	ft_add_xx(str, param);
-	if (param->prec > ft_strlen(str))
+	if (param->prec > (int)ft_strlen(str))
 	{
-		temp1 = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		temp1 = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp1, 2 * bool);
 	}
 	str = ft_modify_width_id(str, 2 * bool, param);
 	ft_putstr(str);
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	free(str);
 	return (len);
 }

@@ -16,7 +16,7 @@ int		ft_count_base(uintmax_t nb, long long int base)
 {
 	if (nb == 0)
 		return (1);
-	if (nb < base)
+	if (nb < (uintmax_t)base)
 		return (1);
 	else
 		return (ft_count_base(nb / base, base) + 1);

@@ -29,14 +29,14 @@ int		ft_print_ptr(va_list *ap, t_param *param)
 
 	ptr = va_arg(*ap, int*);
 	str = ft_itoa_base((intmax_t)ptr, 16);
-	if (param->prec > ft_strlen(str))
+	if (param->prec > (int)ft_strlen(str))
 	{
-		temp = ft_new_n_symb(param->prec - ft_strlen(str), '0');
+		temp = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
 		str = ft_insert_with_free(str, temp, 0);
 	}
 	str = ft_strjoin("0x", str);
 	str = ft_modify_width_id(str, 2, param);
-	len = ft_strlen(str);
+	len = (int)ft_strlen(str);
 	ft_putstr(str);
 	free(str);
 	return (len);
