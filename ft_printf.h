@@ -64,11 +64,11 @@ int			ft_is_flag(char c);
 void		ft_parse_flags(t_param *param, char *str);
 
 //	ft_parse_length1.c
-int 		ft_is_len_hh(t_param *param, char *str);
-int 		ft_is_len_h(t_param *param, char *str);
-int 		ft_is_len_ll(t_param *param, char *str);
-int 		ft_is_len_l(t_param *param, char *str);
-int 		ft_is_len_j(t_param *param, char *str);
+void 		ft_set_hh(t_param *param);
+void 		ft_set_h(t_param *param);
+void 		ft_set_ll(t_param *param);
+void 		ft_set_l(t_param *param);
+void 		ft_set_j(t_param *param);
 
 //	ft_print_with_params.c
 int			ft_print_with_params(va_list *ap, t_param *param, char* str);
