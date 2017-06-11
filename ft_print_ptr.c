@@ -27,6 +27,7 @@ int		ft_print_ptr(va_list *ap, t_param *param)
 	char 	*temp;
 	int		len;
 
+	ptr = va_arg(*ap, int*);
 	str = ft_itoa_base((intmax_t)ptr, 16);
 	if (param->prec > ft_strlen(str))
 	{
