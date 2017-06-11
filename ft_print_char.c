@@ -57,7 +57,6 @@ int		ft_print_low_char(va_list *ap, t_param *p)
 	}
 	if (p->width > (int)ft_strlen(temp))
 	{
-		//is_null = 0;
 		if (p->left == 1)
 			pos = (int)ft_strlen(temp);
 		else

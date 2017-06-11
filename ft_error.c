@@ -14,31 +14,6 @@
 
 int ft_error(t_param* param, char* str)
 {	
-/*	int		count;
-
-	count = 0;
-	if (param->left == 0)
-		count = count + ft_fill_symbols(param);
-	while (*str)
-	{
-		if (!ft_is_type(*str) && !ft_is_len(*str) && *str != '.' \
-			&&  !ft_isdigit(*str) && !ft_is_flag(*str))
-		{
-			ft_putchar(*str);
-			++count;
-			++str;
-			if (param->left == 1)
-				count = count + ft_fill_symbols(param);
-			while (!ft_is_type(*str) && *str)
-			{
-				ft_putchar(*str);
-				++count;
-				++str;
-			}
-		}
-		++str;
-	}
-	return (count);*/
 	if (param->type)
 		param->count = param->count - 1;
 	(void*)str;
@@ -52,7 +27,6 @@ int	ft_is_flag_exist(t_param* p)
 
 int ft_is_type(char ch)
 {
-	//	type -> d, i, o, u, x, X, f, F, e, E, g, G, a, A, s, S, p, n, %
 	if (ch == 'a' || ch == 'A' || ch == 'o' || ch == 'O')
 		return (1);
 	if (ch == 'u' || ch == 'U' || ch == 'd' || ch == 'D')
