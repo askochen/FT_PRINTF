@@ -17,9 +17,6 @@
 # include <stdarg.h>
 # include <unistd.h>
 # include "libft/libft.h"
-# include <inttypes.h>
-# include <stdint.h>
-# include <limits.h>
 
 typedef struct						s_param
 {
@@ -122,4 +119,5 @@ int									ft_is_len(char ch);
 int									ft_fill_symbols(t_param *param);
 char								*ft_modify_with(t_param *p, char *str,
 									int is_null);
+int									ft_print_simple_ch(va_list *ap);
 #endif
