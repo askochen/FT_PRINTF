@@ -11,26 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-
-void	ft_print_param(t_param *param)
-{
-	if (param->lenght == none)
-		printf("lenght: none\n");
-	if (param->lenght == ll)
-		printf("lenght: ll\n");
-	if (param->lenght == hh)
-		printf("lenght: hh\n");
-	if (param->lenght == l)
-		printf("lenght: l\n");
-	if (param->lenght == h)
-		printf("lenght: h\n");
-	if (param->lenght == z)
-		printf("lenght: z\n");
-	if (param->lenght == j)
-		printf("lenght: j\n");
-	printf("type: %c\n", param->type);
-}
 
 int		ft_print_with_params(va_list *ap, t_param *param)
 {
