@@ -59,9 +59,9 @@ int		ft_is_persent(t_param *param)
 
 int		ft_print_persent(t_param *param)
 {
-	char 	*temp;
-	int 	len;
-	char 	symb;
+	char	*temp;
+	int		len;
+	char	symb;
 
 	symb = ' ';
 	if (param->left == 0 && param->zero == 1)

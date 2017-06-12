@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-char	*ft_new_n_symb(int len, char symb)
+char		*ft_new_n_symb(int len, char symb)
 {
 	int		i;
 	char	*str;
@@ -27,7 +27,7 @@ char	*ft_new_n_symb(int len, char symb)
 	return (str);
 }
 
-char	*ft_insert_with_free(char *str1, char *str2, int pos)
+char		*ft_insert_with_free(char *str1, char *str2, int pos)
 {
 	int		len;
 	char	*temp;
@@ -55,7 +55,7 @@ char	*ft_insert_with_free(char *str1, char *str2, int pos)
 	return (temp);
 }
 
-char	*ft_cut_str(char *str, int size)
+char		*ft_cut_str(char *str, int size)
 {
 	char		*temp;
 	int			i;
@@ -76,16 +76,16 @@ char	*ft_cut_str(char *str, int size)
 	return (temp);
 }
 
-char 		*ft_modify_sing(char* str, t_param* param, int minus)
+char		*ft_modify_sing(char *str, t_param *param, int minus)
 {
 	if (minus)
 		return (ft_strjoin("-", str));
 	else if (param->sign == 1)
 		return (ft_strjoin("+", str));
-	return str;
+	return (str);
 }
 
-char		*ft_get_string(intmax_t num, t_param* param, int* minus)
+char		*ft_get_string(intmax_t num, t_param *param, int *minus)
 {
 	*minus = 0;
 	if (param->is_prec && num == 0 && param->prec == 0)

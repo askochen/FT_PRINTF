@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tools2.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/12 16:45:29 by askochen          #+#    #+#             */
+/*   Updated: 2017/06/12 16:45:40 by askochen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	ft_set_symb(t_param *param)
@@ -22,7 +34,7 @@ char	*ft_modify_width_id(char *str, int pos, t_param *param)
 		if (param->left == 1)
 			pos = (int)ft_strlen(str);
 		temp = ft_new_n_symb(param->width - (int)ft_strlen(str), \
-		 ft_set_symb(param));
+		ft_set_symb(param));
 		str = ft_insert_with_free(str, temp, pos);
 	}
 	return (str);

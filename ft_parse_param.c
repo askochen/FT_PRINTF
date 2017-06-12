@@ -17,12 +17,12 @@ void	ft_parse_lenght(t_param *param, char *str)
 	if ((*(str + param->count) == 'h') && (*(str + param->count + 1) == 'h'))
 	{
 		ft_set_hh(param);
- 		return ;
+		return ;
 	}
 	if ((*(str + param->count) == 'l') && (*(str + param->count + 1) == 'l'))
 	{
 		ft_set_ll(param);
- 		return ;
+		return ;
 	}
 	if (*(str + param->count) == 'l')
 		ft_set_l(param);
@@ -31,10 +31,10 @@ void	ft_parse_lenght(t_param *param, char *str)
 	if (*(str + param->count) == 'j')
 		ft_set_j(param);
 	if (*(str + param->count) == 'z')
- 	{
- 		param->lenght = z;
- 		param->count = param->count + 1;
- 	}
+	{
+		param->lenght = z;
+		param->count = param->count + 1;
+	}
 }
 
 void	ft_parse_precis(t_param *param, char *str, va_list *ap)
@@ -116,4 +116,3 @@ void	ft_parse_flags(t_param *param, char *str)
 		param->count = param->count + 1;
 	}
 }
-

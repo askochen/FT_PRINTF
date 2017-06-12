@@ -72,4 +72,3 @@ int			ft_print_ld(va_list *ap, t_param *p)
 	else
 		return (ft_put_int((intmax_t)va_arg(*ap, long), p));
 }
-

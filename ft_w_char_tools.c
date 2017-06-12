@@ -12,21 +12,21 @@
 
 #include "ft_printf.h"
 
-int 	ft_print_w_char_0(unsigned int val)
+int			ft_print_w_char_0(unsigned int val)
 {
-	unsigned char temp;
+	unsigned char	temp;
 
 	temp = val;
 	write(1, &temp, 1);
 	return (1);
 }
 
-int 	ft_print_w_char_127(unsigned int val)
+int			ft_print_w_char_127(unsigned int val)
 {
-	unsigned char temp;
-	unsigned char t1;
-	unsigned char t2;
-	unsigned int cons;
+	unsigned char	temp;
+	unsigned char	t1;
+	unsigned char	t2;
+	unsigned int	cons;
 
 	cons = 49280;
 	t2 = (val << 26) >> 26;
@@ -38,13 +38,13 @@ int 	ft_print_w_char_127(unsigned int val)
 	return (2);
 }
 
-int		ft_print_w_char_2047(unsigned int val)
+int			ft_print_w_char_2047(unsigned int val)
 {
 	unsigned char	temp;
 	unsigned char	t1;
 	unsigned char	t2;
 	unsigned char	t3;
-	unsigned int cons;
+	unsigned int	cons;
 
 	cons = 14712960;
 	t3 = (val << 26) >> 26;
@@ -59,7 +59,7 @@ int		ft_print_w_char_2047(unsigned int val)
 	return (3);
 }
 
-int		ft_print_w_char_biggest(unsigned int val, unsigned int cons)
+int			ft_print_w_char_biggest(unsigned int val, unsigned int cons)
 {
 	unsigned char	temp;
 	unsigned char	t1;
@@ -82,10 +82,10 @@ int		ft_print_w_char_biggest(unsigned int val, unsigned int cons)
 	return (4);
 }
 
-int		ft_print_w_char(wchar_t val)
+int			ft_print_w_char(wchar_t val)
 {
 	unsigned int	temp;
-	unsigned int cons;
+	unsigned int	cons;
 
 	cons = 4034953344;
 	temp = val;

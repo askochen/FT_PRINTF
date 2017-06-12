@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_int3.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: askochen <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2017/06/12 16:23:01 by askochen          #+#    #+#             */
+/*   Updated: 2017/06/12 16:23:03 by askochen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "ft_printf.h"
 
@@ -8,7 +19,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 	char		*temp;
 	char		*str;
 	int			pos;
-	
+
 	str = ft_get_string(num, param, &minus);
 	pos = 0;
 	if (param->prec > (int)ft_strlen(str))
@@ -28,7 +39,7 @@ int			ft_put_int(intmax_t num, t_param *param)
 	return (len);
 }
 
-int		ft_put_int_u(uintmax_t temp, t_param *param)
+int			ft_put_int_u(uintmax_t temp, t_param *param)
 {
 	char		*str;
 	int			len;
@@ -52,12 +63,12 @@ int		ft_put_int_u(uintmax_t temp, t_param *param)
 	return (len);
 }
 
-int		ft_put_int_o(uintmax_t temp, t_param *param)
+int			ft_put_int_o(uintmax_t temp, t_param *param)
 {
 	char		*str;
 	int			len;
 	char		*temp1;
-	int 		bool;
+	int			is_bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
 	if (param->is_prec && temp == 0 && param->prec == 0 && param->altern == 0)
@@ -65,44 +76,44 @@ int		ft_put_int_o(uintmax_t temp, t_param *param)
 		free(str);
 		str = ft_strdup("");
 	}
-	bool = param->altern == 1 && temp != 0;
-	if (bool)
+	is_bool = param->altern == 1 && temp != 0;
+	if (is_bool)
 		str = ft_strjoin("0", str);
 	if (param->prec > (int)ft_strlen(str))
 	{
 		temp1 = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp1, bool);
+		str = ft_insert_with_free(str, temp1, is_bool);
 	}
-	str = ft_modify_width_id(str, bool, param);
+	str = ft_modify_width_id(str, is_bool, param);
 	ft_putstr(str);
 	len = (int)ft_strlen(str);
 	free(str);
 	return (len);
 }
 
-int		ft_put_int_x(uintmax_t temp, t_param *param)
+int			ft_put_int_x(uintmax_t temp, t_param *param)
 {
 	char		*str;
 	int			len;
 	char		*temp1;
-	int 		bool;
+	int			is_bool;
 
 	str = ft_itoa_base(temp, ft_get_base(param));
-	bool = param->altern == 1 && temp != 0;
+	is_bool = param->altern == 1 && temp != 0;
 	if (param->is_prec == 1 && temp == 0 && param->prec == 0)
 	{
 		free(str);
 		str = ft_strdup("");
 	}
-	if (bool)
+	if (is_bool)
 		str = ft_strjoin("0x", str);
 	ft_add_xx(str, param);
 	if (param->prec > (int)ft_strlen(str))
 	{
 		temp1 = ft_new_n_symb(param->prec - (int)ft_strlen(str), '0');
-		str = ft_insert_with_free(str, temp1, 2 * bool);
+		str = ft_insert_with_free(str, temp1, 2 * is_bool);
 	}
-	str = ft_modify_width_id(str, 2 * bool, param);
+	str = ft_modify_width_id(str, 2 * is_bool, param);
 	ft_putstr(str);
 	len = (int)ft_strlen(str);
 	free(str);
