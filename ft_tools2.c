@@ -40,6 +40,24 @@ char	*ft_modify_width_id(char *str, int pos, t_param *param)
 	return (str);
 }
 
+char	*ft_modify_with(t_param *p, char *str, int is_null)
+{
+	char		*temp1;
+	int			pos;
+	int			len;
+
+	if (p->width > (int)ft_strlen(str))
+	{
+		if (p->left == 1)
+			pos = (int)ft_strlen(str);
+		else
+			pos = 0;
+		len = p->width - (int)ft_strlen(str) - is_null;
+		temp1 = ft_new_n_symb(len, ft_c(p));
+		str = ft_insert_with_free(str, temp1, pos);
+	}
+	return (str);
+}
 
 char	ft_c(t_param *param)
 {

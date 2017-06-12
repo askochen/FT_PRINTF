@@ -44,7 +44,7 @@ $(LIBFT)libft.a:
 
 clean:
 	make clean -C $(LIBFT)
-	rm -f $(OBJ) ft_printf.h.gch 
+	rm -f $(OBJ) ft_printf.h.gch
 
 fclean: clean
 	make fclean -C $(LIBFT)
