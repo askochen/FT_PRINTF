@@ -20,22 +20,17 @@ int		ft_is_char(t_param *param)
 		return (0);
 }
 
-char	ft_c(t_param *param)
-{
-	if (param->zero == 1 && param->left == 0)
-		return ('0');
-	else
-		return (' ');
-}
-
 int		ft_prit_char(va_list *ap, t_param *p)
 {
 	if (p->type == 'c' && p->lenght != l)
-		return (ft_print_low_char(ap, p));
+		//return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
 	else if (p->type == 'C' && p->lenght == l)
-		return (ft_print_low_char(ap, p));
+		//return (ft_print_low_char(ap, p));
+		return (ft_print_simple_ch(ap));
 	else
-		return (ft_print_hight_char(ap, p));
+		//return (ft_print_hight_char(ap, p));
+		return (ft_print_simple_ch(ap));
 }
 
 int		ft_print_low_char(va_list *ap, t_param *p)
@@ -79,4 +74,13 @@ int		ft_print_hight_char(va_list *ap, t_param *param)
 	(void)param;
 	c = (wchar_t)va_arg(*ap, void *);
 	return (ft_print_w_char(c));
+}
+
+int		ft_print_simple_ch(va_list *ap)
+{
+	char	ch;
+
+	ch = va_arg(*ap, int);
+	ft_putchar(ch);
+	return (1);
 }

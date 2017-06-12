@@ -39,3 +39,12 @@ char	*ft_modify_width_id(char *str, int pos, t_param *param)
 	}
 	return (str);
 }
+
+
+char	ft_c(t_param *param)
+{
+	if (param->zero == 1 && param->left == 0)
+		return ('0');
+	else
+		return (' ');
+}

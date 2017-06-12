@@ -45,12 +45,11 @@ int			ft_print_low_str(va_list *ap, t_param *p)
 		str = ft_strdup("(null)");
 	if (p->prec > 0 && p->is_prec == 1)
 		str = ft_cut_str(str, p->prec);
+	pos = 0;
 	if (p->width > (int)ft_strlen(str))
 	{
 		if (p->left == 1)
 			pos = (int)ft_strlen(str);
-		else
-			pos = 0;
 		temp1 = ft_new_n_symb(p->width - (int)ft_strlen(str), ft_c(p));
 		str = ft_insert_with_free(str, temp1, pos);
 	}
